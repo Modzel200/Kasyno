@@ -8,39 +8,290 @@ namespace ConsoleCasino.Slots
 {
     public class Slots
     {
-        List<SlotsElement> elements;
-        List<SlotsPrize> prizes;
+        public List<SlotsElement> elements;
+        public List<SlotsPrize> prizes;
         public Slots()
         {
             Random rnd = new Random();
             elements = new List<SlotsElement>();
             prizes = new List<SlotsPrize>();
-            elements.Add(new SlotsElement(1 ,"Diament" , "placeholder", ""));
+            elements.Add(new SlotsElement(1 ,"Diament" , "placeholder", @"                                        
+                                        
+          @@@@@@@@@@@@@@@@@@@@@         
+       #@@ @,    @@. #@@    @@ @@,      
+     @@    /@ (@@       @& (@    *@@    
+   @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#  
+     @@      @@           @#     .@@    
+       @@     @@         @@     @@      
+         @@    @(       @@    @@        
+           @@  .@      @@   @@          
+            /@% &@    @@  @@            
+              &@,@@  ,@ @@              
+                @@@@ @@@                
+                  @@@@.                 
+                    /                   
+                                        
+"));
             prizes.Add(new SlotsPrize(1, 5));
-            elements.Add(new SlotsElement(2, "Wiśienki", "placeholder", ""));
+            elements.Add(new SlotsElement(2, "Wiśienki", "placeholder", @"                                        
+                                        
+                                        
+                       @@@@             
+                    @( @@               
+                  @    @                
+                @@    @%                
+               %@     @@                
+               @       @                
+          @@@@@@@@@@  @@@@@@@@*         
+         @@@@@@@@@@ @@@@@@@@@@@@        
+        @ @@@@@@@@@@ @@@@@@@@@@@@       
+         @@@@@@@@@@ @@@@@@@@@@@@        
+          &@@@@@@@@@  @@@@@@@@          
+                                        
+                                        
+"));
             prizes.Add(new SlotsPrize(2, 1.5));
-            elements.Add(new SlotsElement(3, "Śliwka", "placeholder", ""));
+            elements.Add(new SlotsElement(3, "Śliwka", "placeholder", @"                     /                  
+                   (((                  
+                  .((                   
+                *(((( ##                
+           ((((((##########%%,          
+         (((((##############%%%%        
+        (((((################%%%%       
+       ((((###################%%%%      
+      (((((###################%%%%%     
+      ((((####################%%%%%     
+      ((((####################%%%%%     
+      ((((###################%%%%%%     
+       ((((#################%%%%%%      
+        ((((##############%%%%%%%       
+          (((##########%%%%%%%%         
+             ((%%%%%%%%%%%%%            
+"));
             prizes.Add(new SlotsPrize(3, 1.25));
-            elements.Add(new SlotsElement(4, "Dzwon", "placeholder", ""));
+            elements.Add(new SlotsElement(4, "Dzwon", "placeholder", @"                                        
+                                        
+                                        
+                  @@@@@                 
+               @@@@@@@@@@@              
+             @@@@@@@@@@@@@@@            
+             @@@@@@@@@@@@@@@            
+            @@@@@@@@@@@@@@@@@           
+            @@@@@@@@@@@@@@@@@           
+            @@@@@@@@@@@@@@@@@           
+           @@@@@@@@@@@@@@@@@@@          
+          @@@@@@@@@@@@@@@@@@@@@         
+        @@@@@@@@@@@@@@@@@@@@@@@@@       
+               @@@@@@                   
+                 *                      
+                                        
+"));
             prizes.Add(new SlotsPrize(4, 2));
-            elements.Add(new SlotsElement(5, "Koniczyna", "placeholder", ""));
+            elements.Add(new SlotsElement(5, "Koniczyna", "placeholder", @"                                        
+           @@@@@@@     @@@@@@@          
+         @@@@@@@@@@   @@@@@@@@@@        
+      @@@@@@@@@@@@@@ @@@@@@@@@@@@@@     
+     @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@    
+      @@@@@@@@@@@@@@@@@@@@@@@@@@@@@     
+          @@@@@@@@@@@@@@@@@@@@@         
+         (@@@@@@@@@@@@@@@@@@@@@(        
+     *@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*    
+     @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@    
+      @@@@@@@@@@@@@@@@@@@@@@@@@@@@@     
+         @@@@@@@@@@ @ @@@@@@@@@@        
+           @@@@@@@  @  @@@@@@@          
+                   @@                   
+                   @@                   
+                 @@@                    
+                @@@                     
+"));
             prizes.Add(new SlotsPrize(5, rnd.NextDouble()+2));
-            elements.Add(new SlotsElement(6, "Cytryna", "placeholder", ""));
+            elements.Add(new SlotsElement(6, "Cytryna", "placeholder", @"                                        
+                   @@@@@@@@             
+             @@@               @@@@@    
+         (@@                       @@   
+       @@                           @   
+     @@    @@                       @@  
+    @@   @@                          @  
+   @@   @@                           @  
+   @   @@                       @@   @  
+  @@                           @@   @@  
+   @                          @@   @@   
+   @@                        @    @@    
+    @                           @@      
+    @@                       @@.        
+     @@@@@               @@@            
+             .@@@@@@@@                  
+"));
             prizes.Add(new SlotsPrize(6, 1));
-            elements.Add(new SlotsElement(7, "Moneta", "placeholder", ""));
+            elements.Add(new SlotsElement(7, "Moneta", "placeholder", @"                  .&@%.                 
+          ,@@@@@@@%**/&@@@@@@@          
+       @@@@.      .&@%       /@@@@      
+     @@@    @@@@@@@,,,@@@@@@@    @@@    
+  .@@@   @@@@@@@@@     @@@@@@@@@   @@@  
+  @@@  @@@@@@@@           @@@@@@@*  @@@ 
+ @@@  @@@@@@@@    @@@@@ ,@@@@@@@@@@  @@@
+ @@   @@@@@@@@@       @@@@@@@@@@@@@   @@
+@@@  @@@@@@@@@@@@         @@@@@@@@@   @@
+ @@   @@@@@@@@@@@@@@@@.    @@@@@@@@   @@
+ @@@  @@@@@@@@    @@@@@    @@@@@@@@  @@@
+  @@@  %@@@@@@@           @@@@@@@   @@@ 
+   @@@   @@@@@@@@@@   @@@@@@@@@@   @@@  
+     @@@    @@@@@@@%%%@@@@@@@   .@@@    
+       @@@@%                 @@@@@      
+           @@@@@@@@@&@@@@@@@@@          
+"));
             prizes.Add(new SlotsPrize(7, 1));
-            elements.Add(new SlotsElement(8, "Bar", "placeholder", ""));
+            elements.Add(new SlotsElement(8, "Bar", "placeholder", @"                                                            
+          (&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&@@@@&%*         
+       @@@@@@@@                              %@@@@@@@@      
+     .@@@@                                         @@@@     
+     %@@@,      *@@@@@%     *@@%    *@@@@@%        @@@@     
+     %@@@,      *@%  (@&   ,@(%@(   *@&  .@@       @@@@     
+     %@@@,      *@@@@@@%   @@  @@,  *@@@@@         @@@@     
+     %@@@,      *@%   @@  @@@@@@@@. *@&  &@%       @@@@     
+     %@@@,       %%%%*   #%      %%  %*   (%.      @@@@     
+      @@@@*                                       @@@@@     
+       @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@      
+           ,/***********************************/,          
+                                                            "));
             prizes.Add(new SlotsPrize(8, 1));
-            elements.Add(new SlotsElement(9, "Jabłko", "placeholder", ""));
+            elements.Add(new SlotsElement(9, "Jabłko", "placeholder", @"                                        
+                                        
+                                        
+                  .%%                   
+                    ## #######*#        
+                    %%###/####          
+          #########%###########         
+        ,#######################.       
+        #########################       
+        #########################       
+        #########################       
+         #######################        
+          #####################         
+            #################           
+                *,     *.               
+                                        
+"));
             prizes.Add(new SlotsPrize(9, 1));
-            elements.Add(new SlotsElement(10, "Serce", "placeholder", ""));
+            elements.Add(new SlotsElement(10, "Serce", "placeholder", @"                                        
+                                        
+                                        
+                                        
+         @@@@@@@@@@   @@@@@@@@@@        
+       &@@@@@@@@@@@@ @@@@@@@@@@@@,      
+       @@@@@@@@@@@@@@@@@@@@@@@@@@@      
+       &@@@@@@@@@@@@@@@@@@@@@@@@@*      
+        @@@@@@@@@@@@@@@@@@@@@@@@,       
+          @@@@@@@@@@@@@@@@@@@@@         
+            @@@@@@@@@@@@@@@@@           
+               @@@@@@@@@@@              
+                  @@@@@                 
+                                        
+                                        
+                                        
+"));
             prizes.Add(new SlotsPrize(10, 1));
-            elements.Add(new SlotsElement(11, "Winogrona", "placeholder", ""));
+            elements.Add(new SlotsElement(11, "Winogrona", "placeholder", @"                                        
+            @@@@@@*   @@@@@@@           
+            @@@   @@@@@                 
+             @@@@  @@@                  
+        @@@@@@@(@@@@@@@@@.@@@@@@@       
+      @@@     @@@       @@@     @@@     
+      @@@     @@@       @@@     @@@     
+        @@@@@@@ @@@@@@@@@ @@@@@@%       
+          .@@@     @@@     @@@          
+            ,@@@@@@@ @@@@@@@            
+                @@@   @@@               
+                  #@@@/                 
+"));
             prizes.Add(new SlotsPrize(11, 1));
-            elements.Add(new SlotsElement(12, "Pomarańcza", "placeholder", ""));
+            elements.Add(new SlotsElement(12, "Pomarańcza", "placeholder", @"                                        
+                                        
+                                        
+             ####### % #                
+                ###*% ####(             
+                .*******                
+            .***************            
+           *******************          
+         .*********************         
+         //*********************        
+         /**********************        
+          *********************         
+           */****************,          
+              ***/**//*****             
+                                        
+                                        
+"));
             prizes.Add(new SlotsPrize(12, 1));
-            elements.Add(new SlotsElement(13, "Podkowa", "placeholder", ""));
+            elements.Add(new SlotsElement(13, "Podkowa", "placeholder", @"                   /&*                  
+           @@@@@@@@@@@@@@@@@@@          
+        @@@@@@.   @@@@@   /@@@@@@       
+      @@@@@@@@@@@@@@@@@@@@@@@@@@@@@     
+    @@@@  @@@@@@         @@@@@@  @@@@   
+   @@@@ @@@@@               @@@@@ @@@@  
+  @@@@@@@@@@                 @@@@@@@@@@ 
+  @@@  @@@@                   @@@@  @@@ 
+  @@@  @@@@                   @@@@  @@@ 
+   @@@@@@@@                   @@@@@@@@  
+   @@@@@@@@                  *@@@@@@@@  
+    @@@  @@@                 @@@  @@@   
+     @@@@@@@                 @@@@@@@    
+      @@@@@@@               @@@@@@@     
+       @@@@@@@             @@@@@@@      
+     @@@@@@@@@             @@@@@@@@@    
+"));
             prizes.Add(new SlotsPrize(13, 1));
+            elements.Add(new SlotsElement(14, "Siedem", "placeholder", @"                                        
+                                        
+               @@@@@@@@@@@@@@@          
+             @              @           
+            @              /            
+           @  @       @                 
+                     @                  
+                        @               
+                    @  @                
+                   @                    
+                   @  @                 
+                      @                 
+                  @   @                 
+                  @                     
+                                        
+                                        
+"));
+            prizes.Add(new SlotsPrize(14, 1));
+            elements.Add(new SlotsElement(15, "Znak zapytania", "placeholder", @"                                        
+                  @@@@@.                
+              @@@@@@@@@@@@@             
+             @@@@      /@@@@            
+             @@@@       @@@@            
+                      @@@@@             
+                   /@@@@&               
+                  @@@@                  
+                                        
+                  @@@@                  
+                  @@@@                  
+                                        
+"));
+            prizes.Add(new SlotsPrize(15, 1));
+            elements.Add(new SlotsElement(16, "Arbuz", "placeholder", @"                                        
+                                        
+                                        
+                                        
+                                        
+ //    ./////////////////////////    .//
+ //.    /////////////////////////    ///
+ ///    //////%%%//%%%//%%%/////     //.
+  ///     /////////////////////     /// 
+    ///      //////////////(      ///   
+      ///                      .///     
+        ./////             /////        
+             */////////////,            
+                                        
+                                        
+                                        
+"));
+            prizes.Add(new SlotsPrize(16, 1));
         }
     }
 }
