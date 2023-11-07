@@ -11,7 +11,7 @@ namespace ConsoleCasino
     public class Account
     {
         private string name;
-        private float accBalance;
+        private double accBalance;
         public Account()
         {
             if (!File.Exists("account.txt"))
@@ -21,15 +21,23 @@ namespace ConsoleCasino
                 File.WriteAllText("account.txt",name+"\n"+"1000");
             }
             name = File.ReadLines("account.txt").ElementAtOrDefault(0);
-            accBalance = float.Parse(File.ReadLines("account.txt").ElementAtOrDefault(1), CultureInfo.InvariantCulture.NumberFormat);
+            accBalance = double.Parse(File.ReadLines("account.txt").ElementAtOrDefault(1), CultureInfo.InvariantCulture.NumberFormat);
         }
         public string getName()
         {
             return name;
         }
-        public float getBalance()
+        public double getBalance()
         {
             return accBalance;
+        }
+        public void addBalance(double money)
+        {
+            this.accBalance += money;
+        }
+        public void removeBalance(double money)
+        {
+            this.accBalance -= money;
         }
     }
 }

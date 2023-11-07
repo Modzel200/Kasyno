@@ -8,17 +8,17 @@ namespace ConsoleCasino.Slots
 {
     public class SlotsElement
     {
-        public SlotsElement(int Id ,string Name, string ImageUrl, string Asci)
+        public SlotsElement(int Id ,string Name, string ImageUrl, List<string> AsciTab)
         {
             this.Id = Id;
             this.Name = Name;
             this.ImageUrl = ImageUrl;
-            this.Asci = Asci;
+            this.AsciTab = AsciTab;
         }
         public int Id { get; set; }
         public string Name { get; set; }
         public string ImageUrl { get; set; }
-        public string Asci { get; set; }
+        public List<string> AsciTab { get; set; }
     }
     public class SlotsPrize
     {
