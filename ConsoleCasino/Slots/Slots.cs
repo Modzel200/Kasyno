@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.Metrics;
+using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace ConsoleCasino.Slots
@@ -124,7 +127,7 @@ namespace ConsoleCasino.Slots
              .@@@@@@@@                  
 "));
             prizes.Add(new SlotsPrize(6, 1));
-            elements.Add(new SlotsElement(7, "Moneta", "placeholder", @"                  .&@%.                 
+            elements.Add(new SlotsElement(7, "Moneta", "placeholder", @"                                        
           ,@@@@@@@%**/&@@@@@@@          
        @@@@.      .&@%       /@@@@      
      @@@    @@@@@@@,,,@@@@@@@    @@@    
@@ -224,7 +227,7 @@ namespace ConsoleCasino.Slots
                                         
 "));
             prizes.Add(new SlotsPrize(12, 1));
-            elements.Add(new SlotsElement(13, "Podkowa", "placeholder", @"                   /&*                  
+            elements.Add(new SlotsElement(13, "Podkowa", "placeholder", @"                                        
            @@@@@@@@@@@@@@@@@@@          
         @@@@@@.   @@@@@   /@@@@@@       
       @@@@@@@@@@@@@@@@@@@@@@@@@@@@@     
@@ -292,6 +295,67 @@ namespace ConsoleCasino.Slots
                                         
 "));
             prizes.Add(new SlotsPrize(16, 1));
+        }
+        public void Lever()
+        {
+            int counter = 0;
+            Random r = new Random();
+            int x = 0;
+            List<int> actual = new List<int>();
+            while (true)
+            {
+                counter++;
+                switch (counter % 3)
+                {
+                    case 0:
+                        for (int i=0; i<10; i++)
+                        {
+                            x = r.Next(16);
+                            Console.SetCursorPosition((Console.WindowWidth - 40) / 2, Console.CursorTop);
+                            Console.Write(elements[actual[0]].Asci);
+                            Console.SetCursorPosition((Console.WindowWidth - 40) / 2, Console.CursorTop);
+                            Console.Write(elements[actual[1]].Asci);
+                            Console.SetCursorPosition((Console.WindowWidth - 40) / 2, Console.CursorTop);
+                            Console.Write(elements[x].Asci);
+                            Thread.Sleep(200);
+                            Console.Clear();
+                        }
+                        actual.Add(x);
+                        Console.Clear();
+                        Console.SetCursorPosition((Console.WindowWidth - 40) / 2, Console.CursorTop);
+                        Console.Write(elements[actual[0]].Asci);
+                        Console.Write(elements[actual[1]].Asci);
+                        Console.Write(elements[actual[2]].Asci);
+                        while (true) ;
+                        counter = 0;
+                        break;
+                    case 1:
+                        for (int i = 0; i < 10; i++)
+                        {
+                            x = r.Next(16);
+                            Console.SetCursorPosition((Console.WindowWidth - 40) / 2, Console.CursorTop);
+                            Console.Write(elements[x].Asci);
+                            Thread.Sleep(200);
+                            Console.Clear();
+                        }
+                        actual.Add(x);
+                        break;
+                    case 2:
+                        for (int i = 0; i < 10; i++)
+                        {
+                            x = r.Next(16);
+                            Console.SetCursorPosition((Console.WindowWidth - 40) / 2, Console.CursorTop);
+                            Console.Write(elements[actual[0]].Asci);
+                            Console.SetCursorPosition((Console.WindowWidth - 40) / 2, Console.CursorTop);
+                            Console.Write(elements[x].Asci);
+                            Thread.Sleep(200);
+                            Console.Clear();
+                        }
+                        actual.Add(x);
+                        break;
+                }
+                Thread.Sleep(500);
+            }
         }
     }
 }
