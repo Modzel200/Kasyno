@@ -37,7 +37,7 @@ class Program
                                                                                                                                                                 
 ";
         Console.Write(s);
-        string[] options = ["slotsy","ruleta","blackjack"];
+        string[] options ={"slotsy","ruleta","blackjack"};
         Games games = new Games();
         games.printOptions(options);
         Console.WriteLine("Witaj w Royal Casino: " + account.getName());
