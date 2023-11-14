@@ -36,16 +36,24 @@ class Program
                                                                                                                                                                 
                                                                                                                                                                 
 ";
+        Console.WriteLine("Witaj w Royal Casino: " + account.getName());
+        Console.WriteLine("Twój aktualny status konta: " + account.getBalance() + "$");
+        Console.WriteLine("Wybierz jedną z dostępnych gier: ");
         Console.Write(s);
         string[] options ={"slotsy","ruleta","blackjack"};
         Games games = new Games();
-        games.printOptions(options);
-        Console.WriteLine("Witaj w Royal Casino: " + account.getName());
-        Console.WriteLine("Twój aktualny status konta: " + account.getBalance()+"$");
-        Console.WriteLine("Wybierz jedną z dostępnych gier: ");
-        //Roulette roulette = new Roulette();
-        //roulette.Game(account);
-        //Slots te = new Slots();
-        //te.Game(account);
+        int game = games.changeOption(options);
+        switch(game)
+        {
+            case 0:
+                Slots te = new Slots();
+                te.Game(account);
+                break;
+            case 1:
+                Roulette roulette = new Roulette();
+                roulette.Game(account);
+                break;
+        }
+        
     }
 }

@@ -8,16 +8,43 @@ namespace ConsoleCasino
 {
     public class Games
     {
-        public static ConsoleColor ForegroundColor { get; set; }
-        public static ConsoleColor BackgroundColor { get; set; }
+        int selectedIndex=0;
         public void resetColor()
         {
-            ForegroundColor = ConsoleColor.White;
-            BackgroundColor = ConsoleColor.Black;
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.BackgroundColor = ConsoleColor.Black;
+        }
+        public int changeOption(string[] options)
+        {
+            printOptions(options);
+            ConsoleKeyInfo cki;
+            do
+            {
+                cki = Console.ReadKey();
+                switch (cki.Key)
+                {
+                    case ConsoleKey.DownArrow:
+                        if(selectedIndex<options.Length)
+                        {
+                            selectedIndex++;
+                            printOptions(options);
+                        }
+                        break;
+                    case ConsoleKey.UpArrow:
+                        if(selectedIndex>=0)
+                        {
+                            selectedIndex--;
+                            printOptions(options);
+                        }
+                        break;
+                }
+
+            } while (cki.Key != ConsoleKey.Enter);
+            return selectedIndex;
         }
         public void printOptions(string[] options)
         {
-            int selectedIndex = 0;
+            Console.SetCursorPosition(0, 15);
             string currentOption;
             for (int i = 0; i < options.Length; i++)
             {
@@ -25,17 +52,18 @@ namespace ConsoleCasino
                 currentOption = options[i];
                 if (i == selectedIndex)
                 {
-                    ForegroundColor = ConsoleColor.Black;
-                    BackgroundColor = ConsoleColor.White;
+                    Console.ForegroundColor = ConsoleColor.Black;
+                    Console.BackgroundColor = ConsoleColor.White;
                 }
                 else
                 {
-                    ForegroundColor = ConsoleColor.White;
-                    BackgroundColor = ConsoleColor.Black;
+                    Console.ForegroundColor = ConsoleColor.White;
+                    Console.BackgroundColor = ConsoleColor.Black;
                 }
                 Console.WriteLine(currentOption);
             }
             resetColor();
         }
+        
     }
 }
