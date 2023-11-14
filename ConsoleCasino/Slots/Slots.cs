@@ -6,6 +6,9 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using System.Runtime.InteropServices;
+using System.Security.Cryptography;
+
 
 namespace ConsoleCasino.Slots
 {
@@ -335,9 +338,13 @@ namespace ConsoleCasino.Slots
             tmp.Add(@"                                                                                ");
             this.title = tmp;
         }
-        public void Game(Account account, int bet)
+        public void Game(Account account)
         {
             ConsoleKeyInfo cki;
+            int bet = 0;
+            Console.Clear();
+            Console.Write("Za ile chcesz wejść? ");
+            bet = int.Parse(Console.ReadLine());
             Console.Clear();
             EmptyView();
             do
@@ -346,10 +353,86 @@ namespace ConsoleCasino.Slots
                 switch (cki.Key)
                 {
                     case ConsoleKey.Spacebar:
+                        LeverAnim();
                         Lever(account, bet);
+                        LeverAnimBack();
                     break;
                 }
             } while (cki.Key != ConsoleKey.Escape);
+        }
+        public void LeverAnim()
+        {
+            Console.SetCursorPosition(152, 13);
+            Console.Write("   ");
+            Console.SetCursorPosition(151, 14);
+            Console.Write("     ");
+            Console.SetCursorPosition(152, 15);
+            Console.Write("   ");
+            Console.SetCursorPosition(152, 16);
+            Console.Write("   ");
+            Console.SetCursorPosition(152, 17);
+            Console.Write("   ");
+            Console.SetCursorPosition(152, 18);
+            Console.Write("   ");
+            Console.SetCursorPosition(152, 19);
+            Console.Write("   ");
+            Console.SetCursorPosition(152, 20);
+            Console.Write("   ");
+            Console.SetCursorPosition(152, 21);
+            Console.Write(" _ ");
+            Console.SetCursorPosition(153, 22);
+            Console.Write(" ");
+            Console.SetCursorPosition(152, 23);
+            Console.Write("| |");
+            Console.SetCursorPosition(152, 24);
+            Console.Write("| |");
+            Console.SetCursorPosition(152, 25);
+            Console.Write("| |");
+            Console.SetCursorPosition(152, 26);
+            Console.Write("| |");
+            Console.SetCursorPosition(152, 27);
+            Console.Write("| |");
+            Console.SetCursorPosition(152, 28);
+            Console.Write("| |");
+            Console.SetCursorPosition(151, 29);
+            Console.Write("(___)");
+        }
+        public void LeverAnimBack()
+        {
+            Console.SetCursorPosition(152, 13);
+            Console.Write("___");
+            Console.SetCursorPosition(151, 14);
+            Console.Write("(   )");
+            Console.SetCursorPosition(152, 15);
+            Console.Write("| |");
+            Console.SetCursorPosition(152, 16);
+            Console.Write("| |");
+            Console.SetCursorPosition(152, 17);
+            Console.Write("| |");
+            Console.SetCursorPosition(152, 18);
+            Console.Write("| |");
+            Console.SetCursorPosition(152, 19);
+            Console.Write("| |");
+            Console.SetCursorPosition(152, 20);
+            Console.Write("| |");
+            Console.SetCursorPosition(152, 21);
+            Console.Write("| |");
+            Console.SetCursorPosition(153, 22);
+            Console.Write("_");
+            Console.SetCursorPosition(152, 23);
+            Console.Write("   ");
+            Console.SetCursorPosition(152, 24);
+            Console.Write("   ");
+            Console.SetCursorPosition(152, 25);
+            Console.Write("   ");
+            Console.SetCursorPosition(152, 26);
+            Console.Write("   ");
+            Console.SetCursorPosition(152, 27);
+            Console.Write("   ");
+            Console.SetCursorPosition(152, 28);
+            Console.Write("   ");
+            Console.SetCursorPosition(151, 29);
+            Console.Write("     ");
         }
         public void EmptyView()
         {
@@ -361,18 +444,18 @@ namespace ConsoleCasino.Slots
             Console.Write(@" ///  " + @"                                        " + @"  |||  " + @"                                        " + @"  |||  " + @"                                        " + @"  \\\ " + "\n");
             Console.Write(@" |||  " + @"                                        " + @"  |||  " + @"                                        " + @"  |||  " + @"                                        " + @"  ||| " + "\n");
             Console.Write(@" |||  " + @"                                        " + @"  |||  " + @"                                        " + @"  |||  " + @"                                        " + @"  ||| " + "\n");
-            Console.Write(@" |||  " + @"                                        " + @"  |||  " + @"                                        " + @"  |||  " + @"                                        " + @"  ||| " + "\n");
-            Console.Write(@" |||  " + @"                                        " + @"  |||  " + @"                                        " + @"  |||  " + @"                                        " + @"  ||| " + "\n");
-            Console.Write(@" |||  " + @"                                        " + @"  |||  " + @"                                        " + @"  |||  " + @"                                        " + @"  ||| " + "\n");
-            Console.Write(@" |||  " + @"                                        " + @"  |||  " + @"                                        " + @"  |||  " + @"                                        " + @"  ||| " + "\n");
-            Console.Write(@" |||  " + @"                                        " + @"  |||  " + @"                                        " + @"  |||  " + @"                                        " + @"  ||| " + "\n");
-            Console.Write(@" |||  " + @"                                        " + @"  |||  " + @"                                        " + @"  |||  " + @"                                        " + @"  ||| " + "\n");
-            Console.Write(@" |||  " + @"                                        " + @"  |||  " + @"                                        " + @"  |||  " + @"                                        " + @"  ||| " + "\n");
-            Console.Write(@" |||  " + @"                                        " + @"  |||  " + @"                                        " + @"  |||  " + @"                                        " + @"  ||| " + "\n");
-            Console.Write(@" |||  " + @"                                        " + @"  |||  " + @"                                        " + @"  |||  " + @"                                        " + @"  ||| " + "\n");
-            Console.Write(@" |||  " + @"                                        " + @"  |||  " + @"                                        " + @"  |||  " + @"                                        " + @"  ||| " + "\n");
-            Console.Write(@" |||  " + @"                                        " + @"  |||  " + @"                                        " + @"  |||  " + @"                                        " + @"  ||| " + "\n");
-            Console.Write(@" |||  " + @"                                        " + @"  |||  " + @"                                        " + @"  |||  " + @"                                        " + @"  ||| " + "\n");
+            Console.Write(@" |||  " + @"                                        " + @"  |||  " + @"                                        " + @"  |||  " + @"                                        " + @"  ||| " + "      ___\n");
+            Console.Write(@" |||  " + @"                                        " + @"  |||  " + @"                                        " + @"  |||  " + @"                                        " + @"  ||| " + "     (   )\n");
+            Console.Write(@" |||  " + @"                                        " + @"  |||  " + @"                                        " + @"  |||  " + @"                                        " + @"  ||| " + "      | |\n");
+            Console.Write(@" |||  " + @"                                        " + @"  |||  " + @"                                        " + @"  |||  " + @"                                        " + @"  ||| " + "      | |\n");
+            Console.Write(@" |||  " + @"                                        " + @"  |||  " + @"                                        " + @"  |||  " + @"                                        " + @"  ||| " + "      | |\n");
+            Console.Write(@" |||  " + @"                                        " + @"  |||  " + @"                                        " + @"  |||  " + @"                                        " + @"  ||| " + "      | |\n");
+            Console.Write(@" |||  " + @"                                        " + @"  |||  " + @"                                        " + @"  |||  " + @"                                        " + @"  ||| " + "      | |\n");
+            Console.Write(@" |||  " + @"                                        " + @"  |||  " + @"                                        " + @"  |||  " + @"                                        " + @"  ||| " + "---\\  | |\n");
+            Console.Write(@" |||  " + @"                                        " + @"  |||  " + @"                                        " + @"  |||  " + @"                                        " + @"  ||| " + "   |--| |  \n");
+            Console.Write(@" |||  " + @"                                        " + @"  |||  " + @"                                        " + @"  |||  " + @"                                        " + @"  ||| " + "   |__(_)\n");
+            Console.Write(@" |||  " + @"                                        " + @"  |||  " + @"                                        " + @"  |||  " + @"                                        " + @"  ||| " + "   |\n");
+            Console.Write(@" |||  " + @"                                        " + @"  |||  " + @"                                        " + @"  |||  " + @"                                        " + @"  ||| " + "---/  \n");
             Console.Write(@" |||  " + @"                                        " + @"  |||  " + @"                                        " + @"  |||  " + @"                                        " + @"  ||| " + "\n");
             Console.Write(@" |||  " + @"                                        " + @"  |||  " + @"                                        " + @"  |||  " + @"                                        " + @"  ||| " + "\n");
             Console.Write(@" \\\  " + @"                                        " + @"  |||  " + @"                                        " + @"  |||  " + @"                                        " + @"  /// " + "\n");

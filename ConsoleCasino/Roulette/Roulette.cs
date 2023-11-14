@@ -485,16 +485,18 @@ namespace ConsoleCasino.Roulette
             number = rand;
             while (rand != 0)
             {
-                Console.Clear();
                 write = number % roulette.Count;
+                Console.SetCursorPosition(0, 0);
                 Console.Write(rouletteImg[write].image);
                 rand--;
                 number++;
                 Thread.Sleep(time);
                 time += 20;
             }
-            Console.WriteLine();
-            Console.WriteLine("Wygrywa " + rouletteImg[write].number);
+            Console.SetCursorPosition(0, 33);
+            Console.Write("");
+            Console.SetCursorPosition(0, 34);
+            Console.Write("Wygrywa " + rouletteImg[write].number +"\n");
             if (bet == write)
             {
                 return true;
