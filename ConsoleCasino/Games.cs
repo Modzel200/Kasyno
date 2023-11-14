@@ -16,10 +16,11 @@ namespace ConsoleCasino
         }
         public int changeOption(string[] options)
         {
-            printOptions(options);
+            
             ConsoleKeyInfo cki;
             do
             {
+                printOptions(options);
                 cki = Console.ReadKey();
                 switch (cki.Key)
                 {
@@ -44,6 +45,38 @@ namespace ConsoleCasino
         }
         public void printOptions(string[] options)
         {
+            Console.SetCursorPosition(100, 12);
+            Console.Write(@"                                                                                                                                                                                   
+                                                                                                                                                                                    
+                                                                                                                                                                                    
+                                                                                                                                                                                        
+                                                                                 .@@@@@@@@@@@@@@@@@@@@@@@@@@@@/                                                              
+                                                                              .@@@,                           ,@@@                                                           
+                                                                             @@&                                 @@,                                                         
+                                                                             @@                                   *@@                                                         
+                                                                             @@                                   *@@                                                         
+                                                                             @@                                   *@@                                                         
+                                                                             @@                                   *@@                                                         
+                                                                             @@                                   *@@                                                         
+                                                                             @@                                   *@@                                                         
+                                                                             @@                                   *@@                                                         
+                                                                             @@                                   *@@                                                         
+                                                                             @@                                   *@@                                                         
+                                                                             @@                                   *@@                                                         
+                                                                             @@                                   *@@                                                         
+                                                                             @@                                   *@@                                                         
+                                                                             @@                                   *@@                                                                                                               
+                                                                             @@                                   *@@                                                         
+                                                                             @@                                   *@@                                                         
+                                                                             @@                                   *@@                                                         
+                                                                             @@                                   *@@                                                         
+                                                                             @@                                   *@@                                                         
+                                                                             @@                                   *@@                                                         
+                                                                             @@%                                  @@,                                                         
+                                                                              ,@@@&                             &@@%                                                           
+                                                                                  (@@@@@@@@@@@@@@@@@@@@@@@@@@@@((                                                              
+             ");
+            Console.CursorVisible = false;
             Console.SetCursorPosition(0, 15);
             string currentOption;
             for (int i = 0; i < options.Length; i++)
@@ -60,7 +93,8 @@ namespace ConsoleCasino
                     Console.ForegroundColor = ConsoleColor.White;
                     Console.BackgroundColor = ConsoleColor.Black;
                 }
-                Console.WriteLine(currentOption);
+                Console.SetCursorPosition(94, 20+(i*5));
+                Console.Write(currentOption);
             }
             resetColor();
         }

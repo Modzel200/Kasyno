@@ -340,6 +340,7 @@ namespace ConsoleCasino.Slots
         }
         public void Game(Account account)
         {
+            Console.SetCursorPosition(0, 0);
             ConsoleKeyInfo cki;
             int bet = 0;
             Console.Clear();
