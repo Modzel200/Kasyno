@@ -381,48 +381,77 @@ namespace ConsoleCasino.Slots
         }
         public void GameView(int a, int b, int c)
         {
-            foreach (string elem in title)
+            for (int i = 0; i < 9; i++)
             {
-                Console.WriteLine(elem);
+                Console.SetCursorPosition(0, i);
+                Console.Write(title[i]);
             }
+            
+            Console.SetCursorPosition(0, 9);
             Console.Write(@"   ____________________________________________________________________________________________________________________________________________" + "\n");
+            Console.SetCursorPosition(0, 10);
             Console.Write(@" ///  " + @"                                        " + @"  |||  " + @"                                        " + @"  |||  " + @"                                        " + @"  \\\ " + "\n");
+            Console.SetCursorPosition(0, 11);
             Console.Write(@" |||  " + elements[a].AsciTab[0] + @"  |||  " + elements[b].AsciTab[0] + @"  |||  " + elements[c].AsciTab[0] + @"  ||| " + "\n");
+            Console.SetCursorPosition(0, 12);
             Console.Write(@" |||  " + elements[a].AsciTab[1] + @"  |||  " + elements[b].AsciTab[1] + @"  |||  " + elements[c].AsciTab[1] + @"  ||| " + "\n");
+            Console.SetCursorPosition(0, 13);
             Console.Write(@" |||  " + elements[a].AsciTab[2] + @"  |||  " + elements[b].AsciTab[2] + @"  |||  " + elements[c].AsciTab[2] + @"  ||| " + "\n");
+            Console.SetCursorPosition(0, 14);
             Console.Write(@" |||  " + elements[a].AsciTab[3] + @"  |||  " + elements[b].AsciTab[3] + @"  |||  " + elements[c].AsciTab[3] + @"  ||| " + "\n");
+            Console.SetCursorPosition(0, 15);
             Console.Write(@" |||  " + elements[a].AsciTab[4] + @"  |||  " + elements[b].AsciTab[4] + @"  |||  " + elements[c].AsciTab[4] + @"  ||| " + "\n");
+            Console.SetCursorPosition(0, 16);
             Console.Write(@" |||  " + elements[a].AsciTab[5] + @"  |||  " + elements[b].AsciTab[5] + @"  |||  " + elements[c].AsciTab[5] + @"  ||| " + "\n");
+            Console.SetCursorPosition(0, 17);
             Console.Write(@" |||  " + elements[a].AsciTab[6] + @"  |||  " + elements[b].AsciTab[6] + @"  |||  " + elements[c].AsciTab[6] + @"  ||| " + "\n");
+            Console.SetCursorPosition(0, 18);
             Console.Write(@" |||  " + elements[a].AsciTab[7] + @"  |||  " + elements[b].AsciTab[7] + @"  |||  " + elements[c].AsciTab[7] + @"  ||| " + "\n");
+            Console.SetCursorPosition(0, 19);
             Console.Write(@" |||  " + elements[a].AsciTab[8] + @"  |||  " + elements[b].AsciTab[8] + @"  |||  " + elements[c].AsciTab[8] + @"  ||| " + "\n");
+            Console.SetCursorPosition(0, 20);
             Console.Write(@" |||  " + elements[a].AsciTab[9] + @"  |||  " + elements[b].AsciTab[9] + @"  |||  " + elements[c].AsciTab[9] + @"  ||| " + "\n");
+            Console.SetCursorPosition(0, 21);
             Console.Write(@" |||  " + elements[a].AsciTab[10] + @"  |||  " + elements[b].AsciTab[10] + @"  |||  " + elements[c].AsciTab[10] + @"  ||| " + "\n");
+            Console.SetCursorPosition(0, 22);
             Console.Write(@" |||  " + elements[a].AsciTab[11] + @"  |||  " + elements[b].AsciTab[11] + @"  |||  " + elements[c].AsciTab[11] + @"  ||| " + "\n");
+            Console.SetCursorPosition(0, 23);
             Console.Write(@" |||  " + elements[a].AsciTab[12] + @"  |||  " + elements[b].AsciTab[12] + @"  |||  " + elements[c].AsciTab[12] + @"  ||| " + "\n");
+            Console.SetCursorPosition(0, 24);
             Console.Write(@" |||  " + elements[a].AsciTab[13] + @"  |||  " + elements[b].AsciTab[13] + @"  |||  " + elements[c].AsciTab[13] + @"  ||| " + "\n");
+            Console.SetCursorPosition(0, 25);
             Console.Write(@" |||  " + elements[a].AsciTab[14] + @"  |||  " + elements[b].AsciTab[14] + @"  |||  " + elements[c].AsciTab[14] + @"  ||| " + "\n");
+            Console.SetCursorPosition(0, 26);
             Console.Write(@" |||  " + elements[a].AsciTab[15] + @"  |||  " + elements[b].AsciTab[15] + @"  |||  " + elements[c].AsciTab[15] + @"  ||| " + "\n");
+            Console.SetCursorPosition(0, 27);
             Console.Write(@" \\\  " + @"                                        " + @"  |||  " + @"                                        " + @"  |||  " + @"                                        " + @"  /// " + "\n");
+            Console.SetCursorPosition(0, 28);
             Console.Write(@"   --------------------------------------------------------------------------------------------------------------------------------------------" + "\n");
-            Console.WriteLine("Wciśnij SPACE żeby zakręcić, ESC żeby wyjść");
+            Console.SetCursorPosition(0, 29);
+            Console.Write("Wciśnij SPACE żeby zakręcić, ESC żeby wyjść");
         }
         public void Lever(Account account, int bet)
         {
+            Console.CursorVisible = false;
             account.removeBalance(bet);
             Random rand = new Random();
             List<int> iters = new List<int>();
             iters.Add(0);
             iters.Add(0);
             iters.Add(0);
-            for (int i = 0; i < 10; i++)
+            for (int i = 0; i < 30; i++)
             {
-                Console.Clear();
-                iters[0] = rand.Next(16);
-                iters[1] = rand.Next(16);
+                if (i < 10)
+                {
+                    iters[0] = rand.Next(16);
+                }
+                if(i < 20)
+                {
+                    iters[1] = rand.Next(16);
+                }
                 iters[2] = rand.Next(16);
                 GameView(iters[0], iters[1], iters[2]);
-                Thread.Sleep(200);
+                Thread.Sleep(80);
             }
             if ((elements[iters[0]].Id == elements[iters[1]].Id) && (elements[iters[1]].Id == elements[iters[2]].Id))
             {
