@@ -34,10 +34,12 @@ namespace ConsoleCasino
         public void addBalance(double money)
         {
             this.accBalance += money;
+            File.WriteAllText("account.txt", name + "\n" + accBalance);
         }
         public void removeBalance(double money)
         {
             this.accBalance -= money;
+            File.WriteAllText("account.txt", name + "\n" + accBalance);
         }
     }
 }

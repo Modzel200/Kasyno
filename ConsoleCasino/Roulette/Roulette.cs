@@ -5,14 +5,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleCasino
+namespace ConsoleCasino.Roulette
 {
     public class Roulette
     {
-        private List<int> roulette = new List<int>() {0, 5, 12, 3, 10, 1, 8, 9, 2, 7, 6, 11, 4 };
-        private List<string> rouletteImg = new List<string>()
-        {
-            @"                                                                                
+        private List<int> roulette = new List<int>() { 0, 5, 12, 3, 10, 1, 8, 9, 2, 7, 6, 11, 4 };
+        private List<RouletteElement> rouletteImg = new List<RouletteElement>()
+        {new RouletteElement(0,@"                                                                                
                                   ,(((((((((((.                                 
                          ,@@@@@/((((((((/((((((((%%%%%%                         
                      @@@@@@@@@@@/(((((( ( ((((((/%%%%%%%%%%%                    
@@ -43,8 +42,9 @@ namespace ConsoleCasino
                  @@@@@@@/%%%%%% %*#%%%%%/@@@@@ @ @@@@@@%/%%%%%%(                
                     (@%(%%%%%%/,% %%%%%%/@@@@@%#&,@@@@@@&/#%                    
                          #%%%%%%%%%%%%%%/@@@@@@@@@@@@@@                         
-                                 .#%%#%%/@@@@@(                                 ",
-            @"                                                                                
+                                 .#%%#%%/@@@@@(                                 ")
+            ,
+            new RouletteElement(5, @"                                                                                
                                   ,(((((((((((.                                 
                          ,@@@@@/((((((((/((((((((%%%%%%                         
                      @@@@@@@@@@@/(((((( ( ((((((/%%%%%%%%%%%                    
@@ -75,8 +75,9 @@ namespace ConsoleCasino
                  @@@@@@@/%%%%%% %*#%%%%%/@@@@@ @ @@@@@@%/%%%%%%(                
                     (@%(%%%%%%/,% %%%%%%/@@@@@%#&,@@@@@@&/#%                    
                          #%%%%%%%%%%%%%%/@@@@@@@@@@@@@@                         
-                                 .#%%#%%/@@@@@(                                 ",
-            @"                                                                                
+                                 .#%%#%%/@@@@@(                                 ")
+           ,
+            new RouletteElement(12,@"                                                                                
                                   ,(((((((((((.                                 
                          ,@@@@@/((((((((/((((((((%%%%%%                         
                      @@@@@@@@@@@/(((((( ( ((((((/%%%%%%%%%%%                    
@@ -107,8 +108,9 @@ namespace ConsoleCasino
                  @@@@@@@/%%%%%% %*#%%%%%/@@@@@ @ @@@@@@%/%%%%%%(                
                     (@%(%%%%%%/,% %%%%%%/@@@@@%#&,@@@@@@&/#%                    
                          #%%%%%%%%%%%%%%/@@@@@@@@@@@@@@                         
-                                 .#%%#%%/@@@@@(                                 ",
-            @"                                                                                
+                                 .#%%#%%/@@@@@(                                 ")
+            ,
+            new RouletteElement(3,@"                                                                                
                                   ,(((((((((((.                                 
                          ,@@@@@/((((((((/((((((((%%%%%%                         
                      @@@@@@@@@@@/(((((( ( ((((((/%%%%%%%%%%%                    
@@ -139,8 +141,9 @@ namespace ConsoleCasino
                  @@@@@@@/%%%%%% %*#%%%%%/@@@@@ @ @@@@@@%/%%%%%%(                
                     (@%(%%%%%%/,% %%%%%%/@@@@@%#&,@@@@@@&/#%                    
                          #%%%%%%%%%%%%%%/@@@@@@@@@@@@@@                         
-                                 .#%%#%%/@@@@@(                                 ",
-            @"                                                                                
+                                 .#%%#%%/@@@@@(                                 ")
+            ,
+            new RouletteElement(10,@"                                                                                
                                   ,(((((((((((.                                 
                          ,@@@@@/((((((((/((((((((%%%%%%                         
                      @@@@@@@@@@@/(((((( ( ((((((/%%%%%%%%%%%                    
@@ -171,8 +174,9 @@ namespace ConsoleCasino
                  @@@@@@@/%%%%%% %*#%%%%%/@@@@@ @ @@@@@@%/%%%%%%(                
                     (@%(%%%%%%/,% %%%%%%/@@@@@%#&,@@@@@@&/#%                    
                          #%%%%%%%%%%%%%%/@@@@@@@@@@@@@@                         
-                                 .#%%#%%/@@@@@(                                 ",
-            @"                                                                                 
+                                 .#%%#%%/@@@@@(                                 ")
+            ,
+            new RouletteElement(1,@"                                                                                 
                                   ,(((((((((((.                                 
                          ,@@@@@/((((((((/((((((((%%%%%%                         
                      @@@@@@@@@@@/(((((( ( ((((((/%%%%%%%%%%%                    
@@ -203,8 +207,9 @@ namespace ConsoleCasino
                  @@@@@@@/%%%%%% %*#%%%%%/@@@@@ @ @@@@@@%/%%%%%%(                
                     (@%(%%%%%%/,% %%%%%%/@@@@@%#&,@@@@@@&/#%                    
                          #%%%%%%%%%%%%%%/@@@@@@@@@@@@@@                         
-                                 .#%%#%%/@@@@@(                                 ",
-            @"                                                                                
+                                 .#%%#%%/@@@@@(                                 ")
+            ,
+            new RouletteElement(8,@"                                                                                
                                   ,(((((((((((.                                 
                          ,@@@@@/((((((((/((((((((%%%%%%                         
                      @@@@@@@@@@@/(((((( ( ((((((/%%%%%%%%%%%                    
@@ -235,8 +240,9 @@ namespace ConsoleCasino
                  @@@@@@@/%%%%%% %*#%%%%%/@@@@@ @ @@@@@@%/%%%%%%(                
                     (@%(%%%%%%/,% %%%%%%/@@@@@%#&,@@@@@@&/#%                    
                          #%%%%%%%%%%%%%%/@@@@@@@@@@@@@@                         
-                                 .#%%#%%/@@@@@(                                 ",
-            @"                                                                                
+                                 .#%%#%%/@@@@@(                                 ")
+            ,
+            new RouletteElement(9,@"                                                                                
                                   ,(((((((((((.                                 
                          ,@@@@@/((((((((/((((((((%%%%%%                         
                      @@@@@@@@@@@/(((((( ( ((((((/%%%%%%%%%%%                    
@@ -267,8 +273,9 @@ namespace ConsoleCasino
                  @@@@@@@/%%%%%% %*#%%%%%/@@@@@ @ @@@@@@%/%%%%%%(                
                     (@%(%%%%%%/,% %%%%%%/@@@@@%#&,@@@@@@&/#%                    
                          #%%%%%%%%%%%%%%/@@@@@@@@@@@@@@                         
-                                 .#%%#%%/@@@@@(                                 ",
-            @"                                                                                
+                                 .#%%#%%/@@@@@(                                 ")
+            ,
+            new RouletteElement(2,@"                                                                                
                                   ,(((((((((((.                                 
                          ,@@@@@/((((((((/((((((((%%%%%%                         
                      @@@@@@@@@@@/(((((( ( ((((((/%%%%%%%%%%%                    
@@ -299,8 +306,9 @@ namespace ConsoleCasino
                  @@@@@@@/%%%%%% %*#%%%%%/@@@@@ @ @@@@@@%/%%%%%%(                
                     (@%(%%%%%%/,% %%%%%%/@@@@@%#&,@@@@@@&/#%                    
                          #%%%%%%%%%%%%%%/@@@@@@@@@@@@@@                         
-                                 .#%%#%%/@@@@@(                                 ",
-            @"                                                                                
+                                 .#%%#%%/@@@@@(                                 ")
+            ,
+            new RouletteElement(7,@"                                                                                
                                   ,(((((((((((.                                 
                          ,@@@@@/((((((((/((((((((%%%%%%                         
                      @@@@@@@@@@@/(((((( ( ((((((/%%%%%%%%%%%                    
@@ -331,8 +339,9 @@ namespace ConsoleCasino
                  @@@@@@@/%%%%%% %*#%%%%%/@@@@@ @ @@@@@@%/%%%%%%(                
                     (@%(%%%%%%/,% %%%%%%/@@@@@%#&,@@@@@@&/#%                    
                          #%%%%%%%%%%%%%%/@@@@@@@@@@@@@@                         
-                                 .#%%#%%/@@@@@(                                 ",
-            @"                                                                                
+                                 .#%%#%%/@@@@@(                                 ")
+            ,
+            new RouletteElement(6, @"                                                                                
                                   ,(((((((((((.                                 
                          ,@@@@@/((((((((/((((((((%%%%%%                         
                      @@@@@@@@@@@/(((((( ( ((((((/%%%%%%%%%%%                    
@@ -363,8 +372,9 @@ namespace ConsoleCasino
                  @@@@@@@/%%%%%% %*#%%%%%/@@@@@ @ @@@@@@%/%%%%%%(                
                     (@%(%%%%%%/,% %%%%%%/@@@@@%#&,@@@@@@&/#%                    
                          #%%%%%%%%%%%%%%/@@@@@@@@@@@@@@                         
-                                 .#%%#%%/@@@@@(                                 ",
-            @"                                                                                
+                                 .#%%#%%/@@@@@(                                 ")
+           ,
+            new RouletteElement(11, @"                                                                                
                                   ,(((((((((((.                                 
                          ,@@@@@/((((((((/((((((((%%%%%%                         
                      @@@@@@@@@@@/(((((( ( ((((((/%%%%%%%%%%%                    
@@ -395,8 +405,9 @@ namespace ConsoleCasino
                  @@@@@@@/%%%%%% %*#%%%%%/@@@@@ @ @@@@@@%/%%%%%%(                
                     (@%(%%%%%%/,% %%%%%%/@@@@@%#&,@@@@@@&/#%                    
                          #%%%%%%%%%%%%%%/@@@@@@@@@@@@@@                         
-                                 .#%%#%%/@@@@@(                                 ",
-            @"                                                                                
+                                 .#%%#%%/@@@@@(                                 ")
+           ,
+            new RouletteElement(4,@"                                                                                
                                   ,(((((((((((.                                 
                          ,@@@@@/((((((((/((((((((%%%%%%                         
                      @@@@@@@@@@@/(((((( ( ((((((/%%%%%%%%%%%                    
@@ -427,37 +438,68 @@ namespace ConsoleCasino
                  @@@@@@@/%%%%%% %*#%%%%%/@@@@@ @ @@@@@@%/%%%%%%(                
                     (@%(%%%%%%/,% %%%%%%/@@@@@%#&,@@@@@@&/#%                    
                          #%%%%%%%%%%%%%%/@@@@@@@@@@@@@@                         
-                                 .#%%#%%/@@@@@(                                 "
+                                 .#%%#%%/@@@@@(                                 ")
+            
         };
         private Random random = new Random();
         private int rand;
         private int number;
         public int time = 100;
         public int bid;
+        public int betNumber;
+        public int write;
         public void Game(Account account)
         {
-            Console.Write("Twój zakład: ");
-            bid = Int32.Parse(Console.ReadLine());
-            if(account.getBalance()>bid)
+            ConsoleKeyInfo cki;
+            do
             {
-                Spin();
-            }
+                Console.WriteLine("Wciśnij SPACE żeby zakręcić, ESC żeby wyjść");
+                cki = Console.ReadKey();
+                switch (cki.Key)
+                {
+                    case ConsoleKey.Spacebar:
+                        Console.Write("Twój zakład(za ile wchodzisz): ");
+                        bid = int.Parse(Console.ReadLine());
+                        Console.Write("Kto wygra: ");
+                        betNumber = int.Parse(Console.ReadLine());
+                        if (account.getBalance() > bid)
+                        {
+                            if (Spin(betNumber))
+                            {
+                                account.addBalance(bid);
+                                Console.WriteLine("Wygrywasz, twój aktualny balans:" + account.getBalance());
+                            }
+                            else
+                            {
+                                account.removeBalance(bid);
+                                Console.WriteLine("Przegrywasz, twój aktualny balans:" + account.getBalance());
+                            }
+                        }
+                        break;
+                }
+            } while (cki.Key != ConsoleKey.Escape);
         }
-        public void Spin()
+        public bool Spin(int bet)
         {
-            rand = (random.Next() % 20) + 10;
+            rand = random.Next() % 20 + 10;
             number = rand;
-            int write;
             while (rand != 0)
             {
                 Console.Clear();
-                write = (number % roulette.Count);
-                Console.Write(rouletteImg[write]);
+                write = number % roulette.Count;
+                Console.Write(rouletteImg[write].image);
                 rand--;
                 number++;
                 Thread.Sleep(time);
                 time += 20;
             }
+            Console.WriteLine();
+            Console.WriteLine("Wygrywa " + rouletteImg[write].number);
+            if (bet == write)
+            {
+                return true;
+            }
+            return false;
         }
     }
 }
