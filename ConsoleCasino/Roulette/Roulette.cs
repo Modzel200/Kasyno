@@ -470,8 +470,10 @@ namespace ConsoleCasino.Roulette
                         bid = int.Parse(Console.ReadLine());
                         Console.Write("Kto wygra: ");
                         betNumber = int.Parse(Console.ReadLine());
+                        Console.Clear();
                         if (account.getBalance() > bid)
                         {
+                            Console.Clear();
                             if (Spin(betNumber))
                             {
                                 account.addBalance(bid);
@@ -495,7 +497,7 @@ namespace ConsoleCasino.Roulette
             while (rand != 0)
             {
                 write = number % roulette.Count;
-                Console.SetCursorPosition(0, 0);
+                Console.SetCursorPosition(50, 0);
                 Console.Write(rouletteImg[write].image);
                 rand--;
                 number++;
