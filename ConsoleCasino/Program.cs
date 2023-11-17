@@ -20,42 +20,22 @@ class Program
         Console.SetWindowSize(Console.LargestWindowWidth, Console.LargestWindowHeight);
         ShowWindow(ThisConsole, MAXIMIZE);
         Account account = new Account();
-        string s = @"                                                                                                                                                                
-                                                                                                                                                                
-                                                                                                                                                                
-                                                                                                                                                                
-                          (@@@@@@@%,      .%@@@@@@@@/   (@&.     .@@*    #@@#        &@*                ,%@@@@@@@/      .&@@/       .#@@@@@@%.   (@#    %@@%       &@,     ,%@@@@@@@@*   
-                          #@%     &@#   .&@#       *@@/  ,@@,   ,@@.    (@(%@(       &@*              .&@(              %@,&@/      &@*          (@#    %@#@@*     &@,   ,@@(       /@@* 
-                          #@%     %@#   %@#         *@@.  .@@/ /@%     /@#  %@(      &@*              &@(              #@/ .&@,     #@@*         (@#    %@* &@#    &@,   &@/         (@& 
-                          #@@@@@@@(.    @@*         .@@,    #@&@#     *@%    &@*     &@*             *@@.             #@#   ,@@,      /&@@@#.    (@#    %@*  (@@.  &@,  ,@@,         ,@@.
-                          #@%   ,@@/    &@(         *@@.     %@#     *@@(((((#@@*    &@*             .@@*            (@&(((((%@@,         ,&@%   (@#    %@*   .@@/.&@,  .@@*         /@& 
-                          #@%     &@(   *@@*       ,@@*      %@#    ,@@.      *@@,   &@*              /@@,          *@&.      (@&.         /@&   (@#    %@*     %@%@@,   (@@.       *@@, 
-                          #@%      &@#    #@@@%#%@@@(        %@#   .@@,        *@@.  &@@@@@@@&.        .%@@&%#%@@&.*@@.        (@& *@@@%#%@@%.   (@#    %@*      *@@@,    .%@@&%#%@@@/   
-                                                                                                                                                                
-                                                                                                                                                                
-                                                                                                                                                                
-                                                                                                                                                                
-";      
-        Console.Write(s);
-        Console.SetCursorPosition(170,0);
-        Console.WriteLine("Stan konta: " + account.getBalance() + "$");
-        Console.SetCursorPosition(0, 0);
-        //Console.WriteLine("Witaj w Royal Casino: " + account.getName());
-        //Console.WriteLine("Wybierz jedną z dostępnych gier: ");
-
-        string[] options ={"slotsy","ruleta","blackjack"};
+        Assets assets = new Assets();
+        assets.getTittle();
+        assets.getBalance(account);
+        string[] options ={"Slotsy","Ruletka","BlackJack"};
         Games games = new Games();
         int game = games.changeOption(options);
         Console.Clear();
         switch(game)
         {
             case 0:
-                Slots te = new Slots();
-                te.Game(account);
+                Slots slots = new Slots();
+                slots.Game(account,assets);
                 break;
             case 1:
                 Roulette roulette = new Roulette();
-                roulette.Game(account);
+                roulette.Game(account,assets);
                 break;
         }
         

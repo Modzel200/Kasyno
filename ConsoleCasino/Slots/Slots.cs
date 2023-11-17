@@ -338,8 +338,9 @@ namespace ConsoleCasino.Slots
             tmp.Add(@"                                                                                ");
             this.title = tmp;
         }
-        public void Game(Account account)
+        public void Game(Account account, Assets assets)
         {
+            assets.getBalance(account);
             Console.SetCursorPosition(0, 0);
             ConsoleKeyInfo cki;
             int bet = 0;
@@ -347,6 +348,7 @@ namespace ConsoleCasino.Slots
             Console.Write("Za ile chcesz wejść? ");
             bet = int.Parse(Console.ReadLine());
             Console.Clear();
+            assets.getBalance(account);
             EmptyView();
             do
             {
@@ -355,7 +357,7 @@ namespace ConsoleCasino.Slots
                 {
                     case ConsoleKey.Spacebar:
                         LeverAnim();
-                        Lever(account, bet);
+                        Lever(account, bet,assets);
                         LeverAnimBack();
                     break;
                 }
@@ -514,8 +516,9 @@ namespace ConsoleCasino.Slots
             Console.SetCursorPosition(0, 29);
             Console.Write("Wciśnij SPACE żeby zakręcić, ESC żeby wyjść");
         }
-        public void Lever(Account account, int bet)
+        public void Lever(Account account, int bet, Assets assets)
         {
+            assets.getBalance(account);
             Console.CursorVisible = false;
             account.removeBalance(bet);
             Random rand = new Random();
