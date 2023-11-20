@@ -3,6 +3,7 @@ using ConsoleCasino.Roulette;
 using ConsoleCasino.Slots;
 using System.Runtime.InteropServices;
 using ConsoleCasino.Craps;
+using ConsoleCasino.BlackJack;
 
 class Program
 {
@@ -37,6 +38,11 @@ class Program
             case 1:
                 Roulette roulette = new Roulette();
                 roulette.Game(account,assets);
+                break;
+            case 2:
+                Blackjack bjgame = new Blackjack(assets);
+                bjgame.Game(account);
+
                 break;
             case 3:
                 Craps craps = new Craps();
