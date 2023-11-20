@@ -2,215 +2,54 @@
 
 public class Craps
 {
-    private string basicCraps = @"                                                                          
-                                                                                 &@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#            
-                                                                               *@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@          
-                                                                              %@@@@                                          *@@@@         
-                                                                              @@@@/                                           @@@@@        
-                                                                              @@@@/          @@@                ,@@@          @@@@@        
-                                                                              @@@@/        @@@@@@@             @@@@@@/        @@@@@        
-                                                                              @@@@/         @@@@@              .@@@@%         @@@@@        
-                                                                              @@@@/                                           @@@@@        
-                                                                              @@@@/                                           @@@@@        
-                                                                              @@@@/         &@@@&               @@@@/         @@@@@        
-                                                                              @@@@/        @@@@@@@             @@@@@@/        @@@@@        
-                                                                              @@@@/         /@@@/               &@@@          @@@@@        
-                                                                              @@@@/                                           @@@@@        
-                                                                              @@@@/                                           @@@@@        
-                                                                              @@@@/         @@@@@              *@@@@@         @@@@@        
-                                                                              @@@@/        &@@@@@@             @@@@@@*        @@@@@        
-                                                                              @@@@/          /@(                 %@,          @@@@@        
-                                                                              @@@@/                                           @@@@@        
-                                                                              /@@@@.                                         %@@@@         
-                                                                                @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@          
-                                                                                  /@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@.            ";
-    private List<CrapsElement> crapsImg = new List<CrapsElement>()
-    {
-        new CrapsElement(1, @"                                                                               
-             @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#            
-          ,@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@          
-         #@@@@                                          ,@@@@.        
-         @@@@*                                           @@@@&        
-         @@@@*                                           @@@@&        
-         @@@@*                                           @@@@&        
-         @@@@*                                           @@@@&        
-         @@@@*                                           @@@@&        
-         @@@@*                                           @@@@&        
-         @@@@*                   @@@@#                   @@@@&        
-         @@@@*                  @@@@@@@                  @@@@&        
-         @@@@*                   (@@@,                   @@@@&        
-         @@@@*                                           @@@@&        
-         @@@@*                                           @@@@&        
-         @@@@*                                           @@@@&        
-         @@@@*                                           @@@@&        
-         @@@@*                                           @@@@&        
-         @@@@*                                           @@@@&        
-         /@@@@.                                         #@@@@         
-           @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@          
-             *@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@.            "),
-        new CrapsElement(2,@"                                                                        
-             @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#            
-          ,@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@          
-         #@@@@                                          ,@@@@.        
-         @@@@*                                           @@@@&        
-         @@@@*                                           @@@@&        
-         @@@@*                                           @@@@&        
-         @@@@*                                           @@@@&        
-         @@@@*             &@@@@(                        @@@@&        
-         @@@@*            .@@@@@@                        @@@@&        
-         @@@@*              ,##                          @@@@&        
-         @@@@*                                           @@@@&        
-         @@@@*                         #@@(              @@@@&        
-         @@@@*                       ,@@@@@@             @@@@&        
-         @@@@*                        #@@@@.             @@@@&        
-         @@@@*                                           @@@@&        
-         @@@@*                                           @@@@&        
-         @@@@*                                           @@@@&        
-         @@@@*                                           @@@@&        
-         /@@@@.                                         #@@@@         
-           @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@          
-             *@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@.            "),
-        new CrapsElement(3,@"                                                                            
-             &@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@(            
-          ,@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@          
-         #@@@@                                          *@@@@.        
-         @@@@*                                           @@@@&        
-         @@@@*                                           @@@@&        
-         @@@@*         (@@@#                             @@@@&        
-         @@@@*        &@@@@@@                            @@@@&        
-         @@@@*         #@@@%                             @@@@&        
-         @@@@*                                           @@@@&        
-         @@@@*                   @@@@#                   @@@@&        
-         @@@@*                  @@@@@@@                  @@@@&        
-         @@@@*                   (@@@,                   @@@@&        
-         @@@@*                                           @@@@&        
-         @@@@*                             @@@@#         @@@@&        
-         @@@@*                            @@@@@@/        @@@@&        
-         @@@@*                             /@@&          @@@@&        
-         @@@@*                                           @@@@&        
-         @@@@*                                           @@@@&        
-         *@@@@.                                         #@@@@         
-           @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@          
-             ,@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@.             "),
-        new CrapsElement(4,@"                                                                          
-             &@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#            
-          *@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@          
-         %@@@@                                          *@@@@         
-         @@@@/                                           @@@@@        
-         @@@@/                                           @@@@@        
-         @@@@/                                           @@@@@        
-         @@@@/           %@@@@          ,@@@@*           @@@@@        
-         @@@@/          #@@@@@@         @@@@@@           @@@@@        
-         @@@@/            @@@*           %@@&            @@@@@        
-         @@@@/                                           @@@@@        
-         @@@@/                                           @@@@@        
-         @@@@/                                           @@@@@        
-         @@@@/           ,@@@@           @@@@            @@@@@        
-         @@@@/          %@@@@@@         @@@@@@           @@@@@        
-         @@@@/           *@@@@           @@@@.           @@@@@        
-         @@@@/                                           @@@@@        
-         @@@@/                                           @@@@@        
-         @@@@/                                           @@@@@        
-         /@@@@.                                         %@@@@         
-           @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@          
-             /@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@.            "),
-        new CrapsElement(5,@"                                                                            
-             &@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#            
-          *@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@          
-         %@@@@                                          *@@@@         
-         @@@@/                                           @@@@@        
-         @@@@/                                           @@@@@        
-         @@@@/         (@@@#               @@@@.         @@@@@        
-         @@@@/        @@@@@@@             @@@@@@/        @@@@@        
-         @@@@/         #@@@%               @@@@,         @@@@@        
-         @@@@/                                           @@@@@        
-         @@@@/                   @@@@%                   @@@@@        
-         @@@@/                  @@@@@@@                  @@@@@        
-         @@@@/                   #@@@,                   @@@@@        
-         @@@@/                                           @@@@@        
-         @@@@/         @@@@@               @@@@%         @@@@@        
-         @@@@/        @@@@@@@             @@@@@@/        @@@@@        
-         @@@@/         .@@@.               /@@@          @@@@@        
-         @@@@/                                           @@@@@        
-         @@@@/                                           @@@@@        
-         /@@@@.                                         %@@@@         
-           @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@          
-             /@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@.            "),
-        new CrapsElement(6,@"                                                                          
-             &@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#            
-          *@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@          
-         %@@@@                                          *@@@@         
-         @@@@/                                           @@@@@        
-         @@@@/          @@@                ,@@@          @@@@@        
-         @@@@/        @@@@@@@             @@@@@@/        @@@@@        
-         @@@@/         @@@@@              .@@@@%         @@@@@        
-         @@@@/                                           @@@@@        
-         @@@@/                                           @@@@@        
-         @@@@/         &@@@&               @@@@/         @@@@@        
-         @@@@/        @@@@@@@             @@@@@@/        @@@@@        
-         @@@@/         /@@@/               &@@@          @@@@@        
-         @@@@/                                           @@@@@        
-         @@@@/                                           @@@@@        
-         @@@@/         @@@@@              *@@@@@         @@@@@        
-         @@@@/        &@@@@@@             @@@@@@*        @@@@@        
-         @@@@/          /@(                 %@,          @@@@@        
-         @@@@/                                           @@@@@        
-         /@@@@.                                         %@@@@         
-           @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@          
-             /@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@.            ")
-    };
+    
+    
 
     private int bid;
     private Random random = new Random();
     private int rand;
     private int number;
-    public int write;
-    public int throw1;
-    public int throw2;
+    private int write;
+    private int throw1;
+    private int throw2;
+    private List<CrapsElement> crapsImg;
     public void Game(Account account, Assets assets)
     {
       ConsoleKeyInfo cki;
       do
       {
-        assets.getBalance(account);
+            assets.getBalance(account);
             Console.SetCursorPosition(0, 15);
-            Console.Write(basicCraps);
-        Console.SetCursorPosition(0,1);
-        Console.WriteLine(@"                                                                                                                                                                                                                     
-                                                                         ..                                                          ...                            
-                                                                     (@@@#**#@@@   %@@(/(#@@@#         @@@@.        @@((/(@@@@    (@@%,.*&@(
-                                                                    @@(            %@@      @@/       @@.,@@        @@.     &@@  .@@.
-                                                                   @@&             %@@     %@@       @@,  /@@       @@.     @@@   (@@@,
-                                                                   @@(             %@@@@@@@*        @@/    %@@      @@&%%&@@@/       *@@@@&
-                                                                   @@@             %@@    *@@.     @@@@@@@@@@@@     @@.                  *@@/ 
-                                                                    @@@        .   %@@     ,@@,   %@&        @@&    @@.                   @@* 
-                                                                     .@@@@@@@@@#   %@@      ,@@, #@@          @@%   @@.          *@@@@@@@@&");
-        Console.WriteLine("Wciśnij SPACE żeby rzucić koścmi, ESC żeby wyjść");
-        cki = Console.ReadKey();
-        switch (cki.Key)
-        {
-          case ConsoleKey.Spacebar:
-            Console.Write("Twój zakład: ");
-            bid = int.Parse(Console.ReadLine());
-            if (account.getBalance() >= bid)
+            assets.getBasicCraps();
+            Console.SetCursorPosition(0,1);
+            assets.getCraps();
+            Console.WriteLine();
+            Console.WriteLine("Wciśnij SPACE żeby rzucić koścmi, ESC żeby wyjść");
+            cki = Console.ReadKey();
+            switch (cki.Key)
             {
-                Console.Clear();
-              if (Throw())
-              {
-                account.addBalance(bid);
-                Console.SetCursorPosition(100, 21);
-                Console.WriteLine("Wygrywasz, twój aktualny balans:" + account.getBalance());
-                Thread.Sleep(2000);
-                Console.Clear() ;
-              }
-              else
-              {
-                account.removeBalance(bid);
-                Console.SetCursorPosition(100, 21);
-                Console.WriteLine("Przegrywasz, twój aktualny balans:" + account.getBalance());
-                Thread.Sleep(2000);
-                Console.Clear();
-              }
+                case ConsoleKey.Spacebar:
+                Console.Write("Twój zakład: ");
+                bid = int.Parse(Console.ReadLine());
+                if (account.getBalance() >= bid)
+                {
+                    Console.Clear();
+                if (Throw(assets))
+                {
+                    account.addBalance(bid);
+                    Console.SetCursorPosition(100, 21);
+                    Console.WriteLine("Wygrywasz, twój aktualny balans:" + account.getBalance());
+                    Thread.Sleep(2000);
+                    Console.Clear() ;
+                }
+                else
+                {
+                    account.removeBalance(bid);
+                    Console.SetCursorPosition(100, 21);
+                    Console.WriteLine("Przegrywasz, twój aktualny balans:" + account.getBalance());
+                    Thread.Sleep(2000);
+                    Console.Clear();
+                }
             }
 
             break;
@@ -218,26 +57,19 @@ public class Craps
       } while (cki.Key!=ConsoleKey.Escape);
     }
 
-    public bool Throw()
+    public bool Throw(Assets assets)
     {
+        crapsImg = assets.getCrapsImg();
         Console.SetCursorPosition(0, 1);
-        Console.WriteLine(@"                                                                                                                                                                                                                     
-                                                                         ..                                                          ...                            
-                                                                     (@@@#**#@@@   %@@(/(#@@@#         @@@@.        @@((/(@@@@    (@@%,.*&@(
-                                                                    @@(            %@@      @@/       @@.,@@        @@.     &@@  .@@.
-                                                                   @@&             %@@     %@@       @@,  /@@       @@.     @@@   (@@@,
-                                                                   @@(             %@@@@@@@*        @@/    %@@      @@&%%&@@@/       *@@@@&
-                                                                   @@@             %@@    *@@.     @@@@@@@@@@@@     @@.                  *@@/
-                                                                    @@@        .   %@@     ,@@,   %@&        @@&    @@.                   @@*
-                                                                     .@@@@@@@@@#   %@@      ,@@, #@@          @@%   @@.          *@@@@@@@@&");
+        assets.getCraps();
         int time = 100;
-      Console.CursorVisible = false;
-      rand = random.Next() % 20 + 10;
+        Console.CursorVisible = false;
+        rand = random.Next() % 20 + 10;
         int newrand;
         Console.SetCursorPosition(10, 9);
         Console.WriteLine("Twoje rzuty: ");
-      while (rand != 0)
-      {
+        while (rand != 0)
+        {
             Console.SetCursorPosition(10, 10);
             newrand = (random.Next() % 5) + 1;
             Console.Write(crapsImg[newrand].image);
@@ -245,7 +77,7 @@ public class Craps
             throw1 = crapsImg[newrand].number;
             Thread.Sleep(time);
             time += 20;
-      }
+        }
         Thread.Sleep(2000);
         rand = random.Next() % 20 + 10;
         time = 100;
