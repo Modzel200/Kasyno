@@ -40,6 +40,7 @@ public class Craps
                     Console.SetCursorPosition(100, 21);
                     Console.WriteLine("Wygrywasz, twój aktualny balans:" + account.getBalance());
                     Thread.Sleep(2000);
+                    assets.getBigWin();
                     Console.Clear() ;
                 }
                 else
