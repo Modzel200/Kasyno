@@ -50,8 +50,12 @@ namespace ConsoleCasino.BlackJack
                         {
                             //wygrana
                             assets.resetQuant();
+
                             yoursum = 0;
                             enemysum = 0;
+                            EmptyView();
+                            getYourSum(yoursum);
+                            getEnemySum(enemysum);
                         }
                         if(checkConds(ref yoursum, ref enemysum, false, ref first) == 2)
                         {
@@ -59,6 +63,9 @@ namespace ConsoleCasino.BlackJack
                             assets.resetQuant();
                             yoursum = 0;
                             enemysum = 0;
+                            EmptyView();
+                            getYourSum(yoursum);
+                            getEnemySum(enemysum);
                         }
                         if (checkConds(ref yoursum, ref enemysum, false, ref first) == -1)
                         {
@@ -66,6 +73,9 @@ namespace ConsoleCasino.BlackJack
                             assets.resetQuant();
                             yoursum = 0;
                             enemysum = 0;
+                            EmptyView();
+                            getYourSum(yoursum);
+                            getEnemySum(enemysum);
                         }
                         //LeverAnim();
                         //LeverAnimBack();
@@ -82,6 +92,9 @@ namespace ConsoleCasino.BlackJack
                             assets.resetQuant();
                             yoursum = 0;
                             enemysum = 0;
+                            EmptyView();
+                            getYourSum(yoursum);
+                            getEnemySum(enemysum);
                         }
                         if (checkConds(ref yoursum, ref enemysum, true, ref first) == 2)
                         {
@@ -89,6 +102,9 @@ namespace ConsoleCasino.BlackJack
                             assets.resetQuant();
                             yoursum = 0;
                             enemysum = 0;
+                            EmptyView();
+                            getYourSum(yoursum);
+                            getEnemySum(enemysum);
                         }
                         if (checkConds(ref yoursum, ref enemysum, true, ref first) == -1)
                         {
@@ -96,6 +112,9 @@ namespace ConsoleCasino.BlackJack
                             assets.resetQuant();
                             yoursum = 0;
                             enemysum = 0;
+                            EmptyView();
+                            getYourSum(yoursum);
+                            getEnemySum(enemysum);
                         }
                         //LeverAnim();
                         //LeverAnimBack();
