@@ -2,6 +2,7 @@
 using ConsoleCasino.Roulette;
 using ConsoleCasino.Slots;
 using System.Runtime.InteropServices;
+using ConsoleCasino.Craps;
 
 class Program
 {
@@ -23,7 +24,7 @@ class Program
         Assets assets = new Assets();
         assets.getTittle();
         assets.getBalance(account);
-        string[] options ={"Slotsy","Ruletka","BlackJack"};
+        string[] options ={"Slotsy","Ruletka","BlackJack","Craps"};
         Games games = new Games();
         int game = games.changeOption(options);
         Console.Clear();
@@ -36,6 +37,10 @@ class Program
             case 1:
                 Roulette roulette = new Roulette();
                 roulette.Game(account,assets);
+                break;
+            case 3:
+                Craps craps = new Craps();
+                craps.Game(account,assets);
                 break;
         }
         

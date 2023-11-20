@@ -757,7 +757,6 @@ namespace ConsoleCasino.Roulette
         private Random random = new Random();
         private int rand;
         private int number;
-        public int time = 100;
         public int bid;
         public int betNumber;
         public int write;
@@ -788,7 +787,7 @@ namespace ConsoleCasino.Roulette
                         Console.Write("Kto wygra: ");
                         betNumber = int.Parse(Console.ReadLine());
                         Console.Clear();
-                        if (account.getBalance() > bid)
+                        if (account.getBalance() >= bid)
                         {
                             Console.Clear();
                             if (Spin(betNumber))
@@ -814,6 +813,7 @@ namespace ConsoleCasino.Roulette
         }
         public bool Spin(int bet)
         {
+            int time = 100;
             Console.CursorVisible = false;
             rand = random.Next() % 20 + 10;
             number = rand;
