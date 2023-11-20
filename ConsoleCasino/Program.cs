@@ -30,8 +30,8 @@ class Program
         switch(game)
         {
             case 0:
-                Slots slots = new Slots();
-                slots.Game(account,assets);
+                Slots slots = new Slots(assets);
+                slots.Game(account);
                 break;
             case 1:
                 Roulette roulette = new Roulette();
