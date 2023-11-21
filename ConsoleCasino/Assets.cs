@@ -1796,7 +1796,9 @@ namespace ConsoleCasino
         }
         public void getCraps()
         {
+            Console.ForegroundColor = ConsoleColor.Red;
             Console.Write(craps);
+            Console.ForegroundColor = ConsoleColor.White;
         }
         public void getBasicCraps()
         {
@@ -1808,7 +1810,9 @@ namespace ConsoleCasino
         }
         public void getRoulette()
         {
+            Console.ForegroundColor = ConsoleColor.Red;
             Console.Write(roulette);
+            Console.ForegroundColor = ConsoleColor.White;
         }
         public void getBasicRoulette()
         {
@@ -1820,11 +1824,13 @@ namespace ConsoleCasino
         }
         public void getSlotsTitle()
         {
+            Console.ForegroundColor = ConsoleColor.Red;
             for (int i = 0; i < 9; i++)
             {
                 Console.SetCursorPosition(0, i);
                 Console.Write(slotsTitle[i]);
             }
+            Console.ForegroundColor = ConsoleColor.White;
         }
         public double slotsWin(int a, int b, int c)
         {
@@ -1933,8 +1939,10 @@ namespace ConsoleCasino
         }
         public void getTittle()
         {
+            Console.ForegroundColor = ConsoleColor.Red;
             Console.SetCursorPosition(0, 3);
             Console.Write(tittle);
+            Console.ForegroundColor = ConsoleColor.White;
         }
         public void getBalance(Account account)
         {
@@ -1943,11 +1951,13 @@ namespace ConsoleCasino
         }
         public void getBjTitle()
         {
+            Console.ForegroundColor = ConsoleColor.Red;
             for (int i = 0; i < 9; i++)
             {
                 Console.SetCursorPosition(0, i);
                 Console.Write(blackjackTitle[i]);
             }
+            Console.ForegroundColor = ConsoleColor.White;
         }
         public void getBjTable()
         {

@@ -35,9 +35,9 @@ namespace ConsoleCasino.Roulette
                 switch (cki.Key)
                 {
                     case ConsoleKey.Spacebar:
-                        Console.Write("Twój zakład(za ile wchodzisz): ");
+                        Console.Write("Twój zakład: ");
                         bid = int.Parse(Console.ReadLine());
-                        Console.Write("Kto wygra: ");
+                        Console.Write("Ktory numer wybierasz [0-12]: ");
                         betNumber = int.Parse(Console.ReadLine());
                         //Console.Clear();
                         if (account.getBalance() >= bid)
@@ -46,11 +46,14 @@ namespace ConsoleCasino.Roulette
                             Console.Clear();
                             if (Spin(betNumber,assets))
                             {
-                                account.addBalance(2*bid);
+                                account.addBalance(5*bid);
                                 Console.SetCursorPosition(10, 21);
                                 Console.WriteLine("Wygrywasz, twój aktualny balans:" + account.getBalance());
                                 Thread.Sleep(1000);
-                                assets.getBigWin();
+                                if(bid>=100)
+                                {
+                                    assets.getBigWin();
+                                }
                                 Console.Clear() ;
                             }
                             else

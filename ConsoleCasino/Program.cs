@@ -29,7 +29,7 @@ class Program
             Console.Clear();
             assets.getTittle();
             assets.getBalance(account);
-            string[] options = { "Slotsy", "Ruletka", "BlackJack", "Craps" };
+            string[] options = { "Slots", "Roulette", "BlackJack", "Craps", "Wyjście" };
             Games games = new Games();
             int game = games.changeOption(options);
             Console.Clear();
@@ -51,6 +51,9 @@ class Program
                 case 3:
                     Craps craps = new Craps(account);
                     craps.Game(assets);
+                    break;
+                case 4:
+                    Environment.Exit(0);
                     break;
             }
             assets.getTittle();

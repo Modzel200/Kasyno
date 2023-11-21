@@ -89,7 +89,10 @@ namespace ConsoleCasino.BlackJack
             Thread.Sleep(800);
             Console.SetCursorPosition(25, 50);
             Console.Write("                             ");
-            assets.getBigWin();
+            if (bet >= 100)
+            {
+                assets.getBigWin();
+            }
             yoursum = 0;
             enemysum = 0;
             first = 0;

@@ -45,6 +45,7 @@ namespace ConsoleCasino
         }
         public void printOptions(string[] options)
         {
+            Console.ForegroundColor = ConsoleColor.Blue;
             Console.SetCursorPosition(100, 12);
             Console.Write(@"                                                                                                                                                                                   
                                                                                                                                                                                     
@@ -76,6 +77,7 @@ namespace ConsoleCasino
                                                                               ,@@@&                             &@@%                                                           
                                                                                   (@@@@@@@@@@@@@@@@@@@@@@@@@@@@((                                                              
              ");
+            Console.ForegroundColor = ConsoleColor.White;
             Console.CursorVisible = false;
             Console.SetCursorPosition(0, 15);
             string currentOption;
@@ -93,7 +95,7 @@ namespace ConsoleCasino
                     Console.ForegroundColor = ConsoleColor.White;
                     Console.BackgroundColor = ConsoleColor.Black;
                 }
-                Console.SetCursorPosition(94, 20+(i*5));
+                Console.SetCursorPosition(94, 20+(i*3));
                 Console.Write(currentOption);
             }
             resetColor();

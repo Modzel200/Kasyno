@@ -47,7 +47,10 @@ public class Craps
                     Console.SetCursorPosition(100, 21);
                     Console.WriteLine("Wygrywasz, twój aktualny balans:" + account.getBalance());
                     Thread.Sleep(2000);
-                    assets.getBigWin();
+                    if(bid>=100)
+                            {
+                                assets.getBigWin();
+                            }
                     Console.Clear() ;
                 }
                 else
@@ -80,7 +83,7 @@ public class Craps
         rand = random.Next() % 20 + 10;
         int newrand;
         Console.SetCursorPosition(10, 12);
-        Console.WriteLine("Twoje rzuty: ");
+        Console.WriteLine("Twoj rzut: ");
         while (rand != 0)
         {
             Console.SetCursorPosition(10, 13);
@@ -95,7 +98,7 @@ public class Craps
         rand = random.Next() % 20 + 10;
         time = 100;
         Console.SetCursorPosition(10, 36);
-        Console.WriteLine("Rzuty rywala: ");
+        Console.WriteLine("Rzut rywala: ");
         while (rand != 0)
         {
             Console.SetCursorPosition(10, 37);
