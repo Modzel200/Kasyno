@@ -29,21 +29,24 @@ namespace ConsoleCasino.Slots
             int bet = 0;
             Console.Write("Za ile chcesz wejść? ");
             bet = int.Parse(Console.ReadLine());
-            Console.Clear();
-            assets.getBalance(account);
-            EmptyView();
-            do
+            if(account.getBalance() >= bet)
             {
-                cki = Console.ReadKey();
-                switch (cki.Key)
+                Console.Clear();
+                assets.getBalance(account);
+                EmptyView();
+                do
                 {
-                    case ConsoleKey.Spacebar:
-                        LeverAnim();
-                        Lever(account, bet,assets);
-                        LeverAnimBack();
-                    break;
-                }
-            } while (cki.Key != ConsoleKey.Escape);
+                    cki = Console.ReadKey();
+                    switch (cki.Key)
+                    {
+                        case ConsoleKey.Spacebar:
+                            LeverAnim();
+                            Lever(account, bet, assets);
+                            LeverAnimBack();
+                            break;
+                    }
+                } while (cki.Key != ConsoleKey.Escape);
+            }
         }
         public void LeverAnim()
         {
@@ -90,6 +93,7 @@ namespace ConsoleCasino.Slots
             if (prize != 1)
             {
                 account.addBalance(bet * prize);
+                assets.getBigWin();
                 return true;
             }
             return false;

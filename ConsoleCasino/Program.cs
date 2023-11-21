@@ -23,7 +23,7 @@ class Program
         ShowWindow(ThisConsole, MAXIMIZE);
         Account account = new Account();
         Assets assets = new Assets();
-        //assets.Intro();
+        assets.Intro();
         do
         {
             Console.Clear();
@@ -49,8 +49,8 @@ class Program
 
                     break;
                 case 3:
-                    Craps craps = new Craps();
-                    craps.Game(account, assets);
+                    Craps craps = new Craps(account);
+                    craps.Game(assets);
                     break;
             }
         } while (true);

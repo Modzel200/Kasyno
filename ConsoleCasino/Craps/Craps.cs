@@ -1,9 +1,14 @@
-﻿namespace ConsoleCasino.Craps;
+﻿using System.Security.Principal;
+
+namespace ConsoleCasino.Craps;
 
 public class Craps
 {
-    
-    
+
+    public Craps(Account account)
+    {
+        this.account = account;
+    }
 
     private int bid;
     private Random random = new Random();
@@ -13,7 +18,8 @@ public class Craps
     private int throw1;
     private int throw2;
     private List<CrapsElement> crapsImg;
-    public void Game(Account account, Assets assets)
+    private Account account;
+    public void Game(Assets assets)
     {
       ConsoleKeyInfo cki;
       do
@@ -64,15 +70,16 @@ public class Craps
         crapsImg = assets.getCrapsImg();
         Console.SetCursorPosition(0, 1);
         assets.getCraps();
+        assets.getBalance(account);
         int time = 100;
         Console.CursorVisible = false;
         rand = random.Next() % 20 + 10;
         int newrand;
-        Console.SetCursorPosition(10, 9);
+        Console.SetCursorPosition(10, 12);
         Console.WriteLine("Twoje rzuty: ");
         while (rand != 0)
         {
-            Console.SetCursorPosition(10, 10);
+            Console.SetCursorPosition(10, 13);
             newrand = (random.Next() % 5) + 1;
             Console.Write(crapsImg[newrand].image);
             rand--;
@@ -83,11 +90,11 @@ public class Craps
         Thread.Sleep(2000);
         rand = random.Next() % 20 + 10;
         time = 100;
-        Console.SetCursorPosition(10, 33);
+        Console.SetCursorPosition(10, 36);
         Console.WriteLine("Rzuty rywala: ");
         while (rand != 0)
         {
-            Console.SetCursorPosition(10, 34);
+            Console.SetCursorPosition(10, 37);
             newrand = (random.Next() % 5) + 1;
             Console.Write(crapsImg[newrand].image);
             rand--;

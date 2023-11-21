@@ -15,6 +15,7 @@ namespace ConsoleCasino.BlackJack
         int first = 0;
         int yoursum = 0;
         int enemysum = 0;
+        int finished = 0;
         public Blackjack(Assets assets, Account account)
         {
             this.assets = assets;
@@ -31,43 +32,54 @@ namespace ConsoleCasino.BlackJack
             int bet = 0;
             Console.Write("Ile chcesz postawić? ");
             bet = int.Parse(Console.ReadLine());
-            Console.Clear();
-            EmptyView();
-            getYourSum(yoursum);
-            getEnemySum(enemysum);
-            do
+            if(account.getBalance() >= bet)
             {
-                account.removeBalance(bet);
-                assets.getBalance(account);
-                cki = Console.ReadKey();
-                switch (cki.Key)
+                Console.Clear();
+                EmptyView();
+                getYourSum(yoursum);
+                getEnemySum(enemysum);
+                do
                 {
-                    case ConsoleKey.H:
-                        Thread.Sleep(200);
-                        yoursum += hitCard();
-                        getYourSum(yoursum);
-                        Thread.Sleep(160);
-                        shouldEnemyHit(enemysum);
-                        first = 1;
-                        higerThanTO(yoursum, enemysum, bet);
-                        break;
-                    case ConsoleKey.S:
-                        if(first == 0)
+                    account.removeBalance(bet);
+                    do
+                    {
+                        assets.getBalance(account);
+                        cki = Console.ReadKey();
+                        switch (cki.Key)
+                        {
+                            case ConsoleKey.H:
+                                Thread.Sleep(200);
+                                yoursum += hitCard();
+                                getYourSum(yoursum);
+                                Thread.Sleep(160);
+                                shouldEnemyHit(enemysum);
+                                first = 1;
+                                higerThanTO(yoursum, enemysum, bet);
+                                break;
+                            case ConsoleKey.S:
+                                if (first == 0)
+                                {
+                                    break;
+                                }
+                                while (enemysum <= 16)
+                                {
+                                    shouldEnemyHit(enemysum);
+                                    Thread.Sleep(160);
+                                }
+                                if (higerThanTO(yoursum, enemysum, bet) == 0)
+                                {
+                                    whoIsWinner(yoursum, enemysum, bet);
+                                }
+                                break;
+                        }
+                        if (cki.Key == ConsoleKey.Escape)
                         {
                             break;
                         }
-                        while(enemysum <= 16)
-                        {
-                            shouldEnemyHit(enemysum);
-                            Thread.Sleep(160);
-                        }
-                        if(higerThanTO(yoursum, enemysum, bet) == 0)
-                        {
-                            whoIsWinner(yoursum, enemysum, bet);
-                        }
-                        break;
-                }
-            } while (cki.Key != ConsoleKey.Escape);
+                    } while (finished == 0);
+                    finished = 0;
+                } while (cki.Key != ConsoleKey.Escape);
+            }
         }
         public void win(int bet)
         {
@@ -77,6 +89,7 @@ namespace ConsoleCasino.BlackJack
             Thread.Sleep(800);
             Console.SetCursorPosition(25, 50);
             Console.Write("                             ");
+            assets.getBigWin();
             yoursum = 0;
             enemysum = 0;
             first = 0;
@@ -84,6 +97,7 @@ namespace ConsoleCasino.BlackJack
             EmptyView();
             getYourSum(yoursum);
             getEnemySum(enemysum);
+            finished = 1;
         }
         public void shouldEnemyHit(int b)
         {
@@ -108,6 +122,7 @@ namespace ConsoleCasino.BlackJack
             EmptyView();
             getYourSum(yoursum);
             getEnemySum(enemysum);
+            finished = 1;
         }
         public void loss()
         {
@@ -123,6 +138,7 @@ namespace ConsoleCasino.BlackJack
             EmptyView();
             getYourSum(yoursum);
             getEnemySum(enemysum);
+            finished = 1;
         }
         public void EmptyView()
         {
