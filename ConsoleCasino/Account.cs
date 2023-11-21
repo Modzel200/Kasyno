@@ -44,7 +44,7 @@ namespace ConsoleCasino
         public void getMoreMoney(Assets assets, int bid)
         {
             assets.getMerchant();
-            Console.SetCursorPosition(120, 20);
+            Console.SetCursorPosition(160, 20);
             ConsoleKeyInfo cki;
             Console.Write("Może jakaś pożyczka? (Y/N): ");
             cki = Console.ReadKey();
