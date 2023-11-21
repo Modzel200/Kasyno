@@ -32,6 +32,7 @@ namespace ConsoleCasino.Slots
             if(account.getBalance() >= bet)
             {
                 Console.Clear();
+                account.removeBalance(bet);
                 assets.getBalance(account);
                 EmptyView();
                 do
