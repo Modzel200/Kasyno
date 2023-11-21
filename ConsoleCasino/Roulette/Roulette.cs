@@ -36,7 +36,16 @@ namespace ConsoleCasino.Roulette
                 {
                     case ConsoleKey.Spacebar:
                         Console.Write("Twój zakład: ");
-                        bid = int.Parse(Console.ReadLine());
+                        try
+                        {
+                            bid = int.Parse(Console.ReadLine());
+                        }
+                        catch (FormatException e)
+                        {
+                            Console.WriteLine("Błędne dane, akceptujemy tylko liczby");
+                            Thread.Sleep(1000);
+                            break;
+                        }
                         Console.Write("Ktory numer wybierasz [0-12]: ");
                         betNumber = int.Parse(Console.ReadLine());
                         //Console.Clear();

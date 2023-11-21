@@ -23,16 +23,32 @@ namespace ConsoleCasino.BlackJack
         }
         public void Game()
         {
-            assets.blackjackFill();
-            assets.getBalance(account);
-            assets.getBjTitle();
-            Console.CursorVisible = false;
-            Console.SetCursorPosition(0, 9);
             ConsoleKeyInfo cki;
             int bet = 0;
-            Console.Write("Ile chcesz postawić? ");
-            bet = int.Parse(Console.ReadLine());
-            if(account.getBalance() >= bet)
+            while(true)
+            {
+                assets.blackjackFill();
+                assets.getBalance(account);
+                assets.getBjTitle();
+                Console.CursorVisible = false;
+                Console.SetCursorPosition(0, 9);
+
+                Console.Write("Ile chcesz postawić? ");
+                try
+                {
+                    bet = int.Parse(Console.ReadLine());
+                    break;
+                }
+                catch (FormatException e)
+                {
+                    Console.WriteLine("Błędne dane, akceptujemy tylko liczby");
+                    Thread.Sleep(1000);
+                    Console.Clear();
+
+                }
+            }
+
+            if (account.getBalance() >= bet)
             {
                 Console.Clear();
                 EmptyView();

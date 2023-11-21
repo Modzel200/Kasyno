@@ -21,15 +21,29 @@ namespace ConsoleCasino.Slots
         }
         public void Game(Account account)
         {
-            assets.fillTablesSlots();
-            assets.getBalance(account);
-            assets.getSlotsTitle();
-            Console.SetCursorPosition(0, 9);
-            ConsoleKeyInfo cki;
+            
             int bet = 0;
-            Console.Write("Za ile chcesz wejść? ");
-            bet = int.Parse(Console.ReadLine());
-            if(account.getBalance() >= bet)
+            ConsoleKeyInfo cki;
+            while (true)
+            {
+                assets.fillTablesSlots();
+                assets.getBalance(account);
+                assets.getSlotsTitle();
+                Console.SetCursorPosition(0, 9);
+                Console.Write("Za ile chcesz wejść? ");
+                try
+                {
+                    bet = int.Parse(Console.ReadLine());
+                    break;
+                }
+                catch (FormatException e)
+                {
+                    Console.WriteLine("Błędne dane, akceptujemy tylko liczby");
+                    Thread.Sleep(1000);
+                    Console.Clear();
+                }
+            }
+            if (account.getBalance() >= bet)
             {
                 Console.Clear();
                 account.removeBalance(bet);

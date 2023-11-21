@@ -34,8 +34,8 @@ namespace ConsoleCasino
         private List<BlackjackElement> blackjackElements = new List<BlackjackElement>();
         private List<string> blackjackTitle = new List<string>();
         private List<string> blackjackTable = new List<string>();
-        private SoundPlayer soundPlayer = new SoundPlayer("theme.wav");
-        private SoundPlayer bigWin = new SoundPlayer("money.wav");
+        private SoundPlayer soundPlayer = new SoundPlayer("../../../vidsound/theme.wav");
+        private SoundPlayer bigWin = new SoundPlayer("../../../vidsound/money.wav");
         private int licznik = 0;
         private List<string> intro = new List<string>()
 {
@@ -2024,7 +2024,7 @@ namespace ConsoleCasino
                     timeElapsed = false;
                 }
                 string asciiChars = " .,:ilwWW@@";
-                var capture = new VideoCapture("merchant.mp4");
+                var capture = new VideoCapture("../../../vidsound/merchant.mp4");
                 var img = new Mat();
                 StringBuilder sb = new();
                 while (capture.IsOpened)

@@ -1,6 +1,4 @@
-﻿using System.Security.Principal;
-
-namespace ConsoleCasino.Craps;
+﻿namespace ConsoleCasino.Craps;
 
 public class Craps
 {
@@ -21,12 +19,12 @@ public class Craps
     private Account account;
     public void Game(Assets assets)
     {
-      ConsoleKeyInfo cki;
-      do
-      {
+        ConsoleKeyInfo cki;
+        do
+        {
             Console.SetCursorPosition(0, 15);
             assets.getBasicCraps();
-            Console.SetCursorPosition(0,1);
+            Console.SetCursorPosition(0, 1);
             assets.getCraps();
             assets.getBalance(account);
             Console.WriteLine();
@@ -35,41 +33,50 @@ public class Craps
             switch (cki.Key)
             {
                 case ConsoleKey.Spacebar:
-                Console.Write("Twój zakład: ");
-                bid = int.Parse(Console.ReadLine());
-                if (account.getBalance() >= bid)
-                {
+                    Console.Write("Twój zakład: ");
+                    try
+                    {
+                        bid = int.Parse(Console.ReadLine());
+                    }
+                    catch(FormatException e)
+                    {
+                        Console.WriteLine("Błędne dane, akceptujemy tylko liczby");
+                        Thread.Sleep(1000);
+                        break;
+                    }
+                    if (account.getBalance() >= bid)
+                    {
                         account.removeBalance(bid);
                         Console.Clear();
-                if (Throw(assets))
-                {
-                    account.addBalance(2*bid);
-                    Console.SetCursorPosition(100, 21);
-                    Console.WriteLine("Wygrywasz, twój aktualny balans:" + account.getBalance());
-                    Thread.Sleep(2000);
-                    if(bid>=100)
+                        if (Throw(assets))
+                        {
+                            account.addBalance(2 * bid);
+                            Console.SetCursorPosition(100, 21);
+                            Console.WriteLine("Wygrywasz, twój aktualny balans:" + account.getBalance());
+                            Thread.Sleep(2000);
+                            if (bid >= 100)
                             {
                                 assets.getBigWin();
                             }
-                    Console.Clear() ;
-                }
-                else
-                {
-                    //account.removeBalance(bid);
-                    Console.SetCursorPosition(100, 21);
-                    Console.WriteLine("Przegrywasz, twój aktualny balans:" + account.getBalance());
-                    Thread.Sleep(2000);
-                    Console.Clear();
-                }
-            }
-                else
+                            Console.Clear();
+                        }
+                        else
+                        {
+                            //account.removeBalance(bid);
+                            Console.SetCursorPosition(100, 21);
+                            Console.WriteLine("Przegrywasz, twój aktualny balans:" + account.getBalance());
+                            Thread.Sleep(2000);
+                            Console.Clear();
+                        }
+                    }
+                    else
                     {
-                        account.getMoreMoney(assets,bid);
+                        account.getMoreMoney(assets, bid);
                     }
 
-            break;
-        }
-      } while (cki.Key!=ConsoleKey.Escape);
+                    break;
+            }
+        } while (cki.Key != ConsoleKey.Escape);
     }
 
     public bool Throw(Assets assets)
@@ -109,7 +116,7 @@ public class Craps
             Thread.Sleep(time);
             time += 20;
         }
-        if(throw1>throw2)
+        if (throw1 > throw2)
         {
             return true;
         }
