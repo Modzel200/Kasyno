@@ -23,32 +23,37 @@ class Program
         ShowWindow(ThisConsole, MAXIMIZE);
         Account account = new Account();
         Assets assets = new Assets();
-        assets.getTittle();
-        assets.getBalance(account);
-        string[] options ={"Slotsy","Ruletka","BlackJack","Craps"};
-        Games games = new Games();
-        int game = games.changeOption(options);
-        Console.Clear();
-        switch(game)
+        assets.Intro();
+        do
         {
-            case 0:
-                Slots slots = new Slots(assets);
-                slots.Game(account);
-                break;
-            case 1:
-                Roulette roulette = new Roulette();
-                roulette.Game(account,assets);
-                break;
-            case 2:
-                Blackjack bjgame = new Blackjack(assets, account);
-                bjgame.Game();
+            Console.Clear();
+            assets.getTittle();
+            assets.getBalance(account);
+            string[] options = { "Slotsy", "Ruletka", "BlackJack", "Craps" };
+            Games games = new Games();
+            int game = games.changeOption(options);
+            Console.Clear();
+            switch (game)
+            {
+                case 0:
+                    Slots slots = new Slots(assets);
+                    slots.Game(account);
+                    break;
+                case 1:
+                    Roulette roulette = new Roulette();
+                    roulette.Game(account, assets);
+                    break;
+                case 2:
+                    Blackjack bjgame = new Blackjack(assets);
+                    bjgame.Game(account);
 
-                break;
-            case 3:
-                Craps craps = new Craps();
-                craps.Game(account,assets);
-                break;
-        }
+                    break;
+                case 3:
+                    Craps craps = new Craps();
+                    craps.Game(account, assets);
+                    break;
+            }
+        } while (true);
         
     }
 }
