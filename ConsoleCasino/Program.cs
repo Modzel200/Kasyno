@@ -53,6 +53,7 @@ class Program
                     craps.Game(assets);
                     break;
             }
+            assets.getTittle();
         } while (true);
         
     }
