@@ -36,6 +36,7 @@ namespace ConsoleCasino
         private List<string> blackjackTable = new List<string>();
         private SoundPlayer soundPlayer = new SoundPlayer("../../../vidsound/theme.wav");
         private SoundPlayer bigWin = new SoundPlayer("../../../vidsound/money.wav");
+        private SoundPlayer sadSong = new SoundPlayer("../../../vidsound/sad.wav");
         private int licznik = 0;
         private List<string> intro = new List<string>()
 {
@@ -2054,6 +2055,41 @@ namespace ConsoleCasino
                     sb.Clear();
                 }
             }
+
+        }
+        public void outro()
+        {
+            sadSong.Play();
+            Console.Clear();
+                string asciiChars = " .,:ilwWW@@";
+                var capture = new VideoCapture("../../../vidsound/sad.mp4");
+                var img = new Mat();
+                StringBuilder sb = new();
+                while (capture.IsOpened)
+                {
+                    Thread.Sleep(15);
+                    capture.Read(img);
+                    if (img.Cols == 0) break;
+                    var bit = Emgu.CV.BitmapExtension.ToBitmap(img);
+                    var divieBy = img.Width / 100;
+                    var resized = new System.Drawing.Size(img.Width / divieBy, img.Height / divieBy);
+                    Bitmap bitResized = new(bit, resized);
+
+                    for (int i = 0; i < bitResized.Height; i++)
+                    {
+                        for (int j = 0; j < bitResized.Width; j++)
+                        {
+                            var pixel = bitResized.GetPixel(j, i);
+                            var avg = (pixel.R + pixel.G + pixel.B) / 3;
+                            sb.Append(asciiChars[avg * 10 / 255 % asciiChars.Length]);
+                        }
+                        sb.AppendLine();
+                    }
+                    Console.Write(sb.ToString());
+                    Console.SetCursorPosition(0, 0);
+                    sb.Clear();
+                }
+            Console.Clear();
 
         }
     }

@@ -23,7 +23,7 @@ class Program
         ShowWindow(ThisConsole, MAXIMIZE);
         Account account = new Account();
         Assets assets = new Assets();
-        assets.Intro();
+        //assets.Intro();
         do
         {
             Console.Clear();
@@ -53,6 +53,7 @@ class Program
                     craps.Game(assets);
                     break;
                 case 4:
+                    assets.outro();
                     Environment.Exit(0);
                     break;
             }
