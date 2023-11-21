@@ -11,14 +11,17 @@ namespace ConsoleCasino.BlackJack
     public class Blackjack
     {
         Assets assets { get; set; }
-        public Blackjack(Assets assets)
+        Account account { get; set; }
+        int first = 0;
+        int yoursum = 0;
+        int enemysum = 0;
+        public Blackjack(Assets assets, Account account)
         {
             this.assets = assets;
+            this.account = account;
         }
-        public void Game(Account account)
+        public void Game()
         {
-            int yoursum = 0;
-            int enemysum = 0;
             assets.blackjackFill();
             assets.getBalance(account);
             assets.getBjTitle();
@@ -29,13 +32,13 @@ namespace ConsoleCasino.BlackJack
             Console.Write("Ile chcesz postawić? ");
             bet = int.Parse(Console.ReadLine());
             Console.Clear();
-            assets.getBalance(account);
             EmptyView();
             getYourSum(yoursum);
             getEnemySum(enemysum);
-            int first = 0;
             do
             {
+                account.removeBalance(bet);
+                assets.getBalance(account);
                 cki = Console.ReadKey();
                 switch (cki.Key)
                 {
@@ -44,83 +47,82 @@ namespace ConsoleCasino.BlackJack
                         yoursum += hitCard();
                         getYourSum(yoursum);
                         Thread.Sleep(160);
-                        enemysum += hitEnemyCard();
-                        getEnemySum(enemysum);
-                        if(checkConds(ref yoursum, ref enemysum, false, ref first) == 1)
-                        {
-                            //wygrana
-                            assets.resetQuant();
-
-                            yoursum = 0;
-                            enemysum = 0;
-                            EmptyView();
-                            getYourSum(yoursum);
-                            getEnemySum(enemysum);
-                        }
-                        if(checkConds(ref yoursum, ref enemysum, false, ref first) == 2)
-                        {
-                            //remis
-                            assets.resetQuant();
-                            yoursum = 0;
-                            enemysum = 0;
-                            EmptyView();
-                            getYourSum(yoursum);
-                            getEnemySum(enemysum);
-                        }
-                        if (checkConds(ref yoursum, ref enemysum, false, ref first) == -1)
-                        {
-                            //przegrana
-                            assets.resetQuant();
-                            yoursum = 0;
-                            enemysum = 0;
-                            EmptyView();
-                            getYourSum(yoursum);
-                            getEnemySum(enemysum);
-                        }
-                        //LeverAnim();
-                        //LeverAnimBack();
+                        shouldEnemyHit(enemysum);
                         first = 1;
+                        higerThanTO(yoursum, enemysum, bet);
                         break;
                     case ConsoleKey.S:
                         if(first == 0)
                         {
                             break;
                         }
-                        if (checkConds(ref yoursum, ref enemysum, true, ref first) == 1)
+                        while(enemysum <= 16)
                         {
-                            //wygrana
-                            assets.resetQuant();
-                            yoursum = 0;
-                            enemysum = 0;
-                            EmptyView();
-                            getYourSum(yoursum);
-                            getEnemySum(enemysum);
+                            shouldEnemyHit(enemysum);
+                            Thread.Sleep(160);
                         }
-                        if (checkConds(ref yoursum, ref enemysum, true, ref first) == 2)
+                        if(higerThanTO(yoursum, enemysum, bet) == 0)
                         {
-                            //remis
-                            assets.resetQuant();
-                            yoursum = 0;
-                            enemysum = 0;
-                            EmptyView();
-                            getYourSum(yoursum);
-                            getEnemySum(enemysum);
+                            whoIsWinner(yoursum, enemysum, bet);
                         }
-                        if (checkConds(ref yoursum, ref enemysum, true, ref first) == -1)
-                        {
-                            //przegrana
-                            assets.resetQuant();
-                            yoursum = 0;
-                            enemysum = 0;
-                            EmptyView();
-                            getYourSum(yoursum);
-                            getEnemySum(enemysum);
-                        }
-                        //LeverAnim();
-                        //LeverAnimBack();
                         break;
                 }
             } while (cki.Key != ConsoleKey.Escape);
+        }
+        public void win(int bet)
+        {
+            Console.SetCursorPosition(25, 50);
+            Console.Write("Wygrałeś");
+            account.addBalance(2 * bet);
+            Thread.Sleep(800);
+            Console.SetCursorPosition(25, 50);
+            Console.Write("                             ");
+            yoursum = 0;
+            enemysum = 0;
+            first = 0;
+            assets.resetQuant();
+            EmptyView();
+            getYourSum(yoursum);
+            getEnemySum(enemysum);
+        }
+        public void shouldEnemyHit(int b)
+        {
+            if (b <= 16)
+            {
+                enemysum += hitEnemyCard();
+                getEnemySum(enemysum);
+            }
+        }
+        public void draw(int bet)
+        {
+            Console.SetCursorPosition(25, 50);
+            Console.Write("Remis");
+            account.addBalance(bet);
+            Thread.Sleep(800);
+            Console.SetCursorPosition(25, 50);
+            Console.Write("                             ");
+            yoursum = 0;
+            enemysum = 0;
+            first = 0;
+            assets.resetQuant();
+            EmptyView();
+            getYourSum(yoursum);
+            getEnemySum(enemysum);
+        }
+        public void loss()
+        {
+            Console.SetCursorPosition(25, 50);
+            Console.Write("Przegrałeś");
+            Thread.Sleep(800);
+            Console.SetCursorPosition(25, 50);
+            Console.Write("                             ");
+            yoursum = 0;
+            enemysum = 0;
+            first = 0;
+            assets.resetQuant();
+            EmptyView();
+            getYourSum(yoursum);
+            getEnemySum(enemysum);
         }
         public void EmptyView()
         {
@@ -135,53 +137,34 @@ namespace ConsoleCasino.BlackJack
         {
             assets.getEnemySum(a);
         }
-        public int checkConds(ref int a, ref int b, bool stand, ref int first)
+        public int higerThanTO(int a, int b, int bet)
         {
             if(a > 21)
             {
-                a = 0;
-                b = 0;
-                first = 0;
-                stand = false;
+                loss();
                 return -1;
             }
             if(b > 21)
             {
-                a = 0;
-                b = 0;
-                first = 0;
-                stand = false;
+                win(bet);
                 return 1;
-            }
-            if (!stand)
-            {
-                return 0;
-            }
-            if(a > b && stand)
-            {
-                a = 0;
-                b = 0;
-                first = 0;
-                stand = false;
-                return 1;
-            }
-            if(a < b && stand)
-            {
-                a = 0;
-                b = 0;
-                first = 0;
-                stand = false;
-                return -1;
-            }
-            if(a == b && stand)
-            {
-                a = 0;
-                b = 0;
-                first = 0;
-                stand = false;
-                return 2;
             }
             return 0;
+        }
+        public void whoIsWinner(int a, int b, int bet)
+        {
+            if(a > b)
+            {
+                win(bet);
+            }
+            if(b > a)
+            {
+                loss();
+            }
+            if(a == b)
+            {
+                draw(bet);
+            }
         }
         public int hitCard()
         {

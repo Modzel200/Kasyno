@@ -40,8 +40,8 @@ class Program
                 roulette.Game(account,assets);
                 break;
             case 2:
-                Blackjack bjgame = new Blackjack(assets);
-                bjgame.Game(account);
+                Blackjack bjgame = new Blackjack(assets, account);
+                bjgame.Game();
 
                 break;
             case 3:
