@@ -2023,7 +2023,7 @@ namespace ConsoleCasino
                     capture.Read(img);
                     if (img.Cols == 0) break;
                     var bit = Emgu.CV.BitmapExtension.ToBitmap(img);
-                    var divieBy = img.Width / 100;
+                    var divieBy = img.Width / 90;
                     var resized = new System.Drawing.Size(img.Width / divieBy, img.Height / divieBy);
                     Bitmap bitResized = new(bit, resized);
 
@@ -2038,7 +2038,7 @@ namespace ConsoleCasino
                         sb.AppendLine();
                     }
                     Console.Write(sb.ToString());
-                    Console.SetCursorPosition(120, 20);
+                    Console.SetCursorPosition(160, 20);
                     Console.Write("Może jakaś pożyczka?");
                     Console.SetCursorPosition(0, 0);
                     sb.Clear();
