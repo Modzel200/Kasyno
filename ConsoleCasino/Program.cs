@@ -23,7 +23,7 @@ class Program
         ShowWindow(ThisConsole, MAXIMIZE);
         Account account = new Account();
         Assets assets = new Assets();
-        //assets.Intro();
+        assets.Intro();
         do
         {
             Console.Clear();
