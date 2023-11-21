@@ -24,7 +24,6 @@ public class Craps
       ConsoleKeyInfo cki;
       do
       {
-            
             Console.SetCursorPosition(0, 15);
             assets.getBasicCraps();
             Console.SetCursorPosition(0,1);
@@ -40,10 +39,11 @@ public class Craps
                 bid = int.Parse(Console.ReadLine());
                 if (account.getBalance() >= bid)
                 {
-                    Console.Clear();
+                        account.removeBalance(bid);
+                        Console.Clear();
                 if (Throw(assets))
                 {
-                    account.addBalance(bid);
+                    account.addBalance(2*bid);
                     Console.SetCursorPosition(100, 21);
                     Console.WriteLine("Wygrywasz, twój aktualny balans:" + account.getBalance());
                     Thread.Sleep(2000);
@@ -52,7 +52,7 @@ public class Craps
                 }
                 else
                 {
-                    account.removeBalance(bid);
+                    //account.removeBalance(bid);
                     Console.SetCursorPosition(100, 21);
                     Console.WriteLine("Przegrywasz, twój aktualny balans:" + account.getBalance());
                     Thread.Sleep(2000);

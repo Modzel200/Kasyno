@@ -42,10 +42,11 @@ namespace ConsoleCasino.Roulette
                         //Console.Clear();
                         if (account.getBalance() >= bid)
                         {
+                            account.removeBalance(bid);
                             Console.Clear();
                             if (Spin(betNumber,assets))
                             {
-                                account.addBalance(bid);
+                                account.addBalance(2*bid);
                                 Console.SetCursorPosition(10, 21);
                                 Console.WriteLine("Wygrywasz, twój aktualny balans:" + account.getBalance());
                                 Thread.Sleep(1000);
@@ -54,7 +55,7 @@ namespace ConsoleCasino.Roulette
                             }
                             else
                             {
-                                account.removeBalance(bid);
+                                
                                 Console.SetCursorPosition(10, 21);
                                 Console.WriteLine("Przegrywasz, twój aktualny balans:" + account.getBalance());
                                 Thread.Sleep(2000);
