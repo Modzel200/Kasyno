@@ -41,5 +41,23 @@ namespace ConsoleCasino
             this.accBalance -= money;
             File.WriteAllText("account.txt", name + "\n" + accBalance);
         }
+        public void getMoreMoney(Assets assets, int bid)
+        {
+            assets.getMerchant();
+            Console.SetCursorPosition(120, 20);
+            ConsoleKeyInfo cki;
+            Console.Write("Może jakaś pożyczka? (Y/N): ");
+            cki = Console.ReadKey();
+            switch (cki.Key)
+            {
+                case ConsoleKey.Y:
+                    this.accBalance = bid;
+                    File.WriteAllText("account.txt", name + "\n" + accBalance);
+                    break;
+                case ConsoleKey.N:
+                    break;
+            }
+            Console.Clear();
+        }
     }
 }

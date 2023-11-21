@@ -5,12 +5,15 @@ using ConsoleCasino.Slots;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Drawing;
 using System.Linq;
 using System.Media;
 using System.Security.Principal;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
+using Mat = Emgu.CV.Mat;
+using VideoCapture = Emgu.CV.VideoCapture;
 namespace ConsoleCasino
 {
     public class Assets
@@ -1998,6 +2001,50 @@ namespace ConsoleCasino
         {
             Console.SetCursorPosition(100, 37);
             Console.Write("Suma wroga: " + a);
+        }
+        public void getMerchant()
+        {
+            Console.Clear();
+            var watch = Stopwatch.StartNew();
+            bool timeElapsed = true;
+            while (timeElapsed)
+            {
+                if(watch.ElapsedMilliseconds>=4000)
+                {
+                    timeElapsed = false;
+                }
+                string asciiChars = " .,:ilwWW@@";
+                var capture = new VideoCapture("merchant.mp4");
+                var img = new Mat();
+                StringBuilder sb = new();
+                while (capture.IsOpened)
+                {
+                    Thread.Sleep(50);
+                    capture.Read(img);
+                    if (img.Cols == 0) break;
+                    var bit = Emgu.CV.BitmapExtension.ToBitmap(img);
+                    var divieBy = img.Width / 100;
+                    var resized = new System.Drawing.Size(img.Width / divieBy, img.Height / divieBy);
+                    Bitmap bitResized = new(bit, resized);
+
+                    for (int i = 0; i < bitResized.Height; i++)
+                    {
+                        for (int j = 0; j < bitResized.Width; j++)
+                        {
+                            var pixel = bitResized.GetPixel(j, i);
+                            var avg = (pixel.R + pixel.G + pixel.B) / 3;
+                            sb.Append(asciiChars[avg * 10 / 255 % asciiChars.Length]);
+                        }
+                        sb.AppendLine();
+                    }
+                    Console.Write(sb.ToString());
+                    Console.SetCursorPosition(120, 20);
+                    Console.Write("Może jakaś pożyczka?");
+                    Console.SetCursorPosition(0, 0);
+                    sb.Clear();
+                }
+            }
+
         }
     }
 }

@@ -59,6 +59,10 @@ public class Craps
                     Console.Clear();
                 }
             }
+                else
+                    {
+                        account.getMoreMoney(assets,bid);
+                    }
 
             break;
         }

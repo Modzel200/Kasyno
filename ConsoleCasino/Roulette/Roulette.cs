@@ -48,7 +48,8 @@ namespace ConsoleCasino.Roulette
                                 account.addBalance(bid);
                                 Console.SetCursorPosition(10, 21);
                                 Console.WriteLine("Wygrywasz, twój aktualny balans:" + account.getBalance());
-                                Thread.Sleep(2000);
+                                Thread.Sleep(1000);
+                                assets.getBigWin();
                                 Console.Clear() ;
                             }
                             else
@@ -59,6 +60,10 @@ namespace ConsoleCasino.Roulette
                                 Thread.Sleep(2000);
                                 Console.Clear();
                             }
+                        }
+                        else
+                        {
+                            account.getMoreMoney(assets, bid);
                         }
                         break;
                 }
