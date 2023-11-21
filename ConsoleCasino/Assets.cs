@@ -1936,7 +1936,7 @@ namespace ConsoleCasino
         public void getBalance(Account account)
         {
             Console.SetCursorPosition(170, 1);
-            Console.WriteLine("Stan konta: " + account.getBalance() + "$");
+            Console.WriteLine("Stan konta: " + account.getBalance() + "$     ");
         }
         public void getBjTitle()
         {

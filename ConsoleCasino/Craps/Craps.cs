@@ -18,11 +18,12 @@ public class Craps
       ConsoleKeyInfo cki;
       do
       {
-            assets.getBalance(account);
+            
             Console.SetCursorPosition(0, 15);
             assets.getBasicCraps();
             Console.SetCursorPosition(0,1);
             assets.getCraps();
+            assets.getBalance(account);
             Console.WriteLine();
             Console.WriteLine("Wciśnij SPACE żeby rzucić koścmi, ESC żeby wyjść");
             cki = Console.ReadKey();
