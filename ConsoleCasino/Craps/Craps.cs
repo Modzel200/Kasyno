@@ -90,7 +90,7 @@ public class Craps
         rand = random.Next() % 20 + 10;
         int newrand;
         Console.SetCursorPosition(10, 12);
-        Console.WriteLine("Twoj rzut: ");
+        Console.WriteLine("Twój rzut: ");
         while (rand != 0)
         {
             Console.SetCursorPosition(10, 13);

@@ -46,7 +46,7 @@ namespace ConsoleCasino
             assets.getMerchant();
             Console.SetCursorPosition(160, 20);
             ConsoleKeyInfo cki;
-            Console.Write("Może jakaś pożyczka? (Y/N): ");
+            Console.Write("Chcesz się może zadłużyć? (Y - weź pożyczkę/N - odmów pożyczki): ");
             cki = Console.ReadKey();
             switch (cki.Key)
             {

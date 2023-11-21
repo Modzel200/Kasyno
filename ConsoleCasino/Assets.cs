@@ -2049,7 +2049,7 @@ namespace ConsoleCasino
                     }
                     Console.Write(sb.ToString());
                     Console.SetCursorPosition(160, 20);
-                    Console.Write("Może jakaś pożyczka?");
+                    Console.Write("Chcesz się może zadłużyć?");
                     Console.SetCursorPosition(0, 0);
                     sb.Clear();
                 }
