@@ -19,8 +19,9 @@ class Program
    
     static void Main(string[] args)
     {
-        Console.SetWindowSize(Console.LargestWindowWidth, Console.LargestWindowHeight);
-        ShowWindow(ThisConsole, MAXIMIZE);
+        //Console.SetWindowSize(Console.LargestWindowWidth, Console.LargestWindowHeight);
+        Console.SetWindowSize(210, 61);
+        //ShowWindow(ThisConsole, MAXIMIZE);
         Account account = new Account();
         Assets assets = new Assets();
         assets.Intro();
