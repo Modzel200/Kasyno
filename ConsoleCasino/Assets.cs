@@ -170,6 +170,7 @@ namespace ConsoleCasino
             tmp.Add(@"                    /                   ");
             tmp.Add(@"                                        ");
             slotsElements.Add(new SlotsElement(1, "Diament", "placeholder", tmp));
+            slotsPrizes.Add(new SlotsPrize(1, 5));
             tmp = new List<string>();
             tmp.Add(@"                                        ");
             tmp.Add(@"                                        ");
@@ -187,7 +188,6 @@ namespace ConsoleCasino
             tmp.Add(@"                                        ");
             tmp.Add(@"                                        ");
             tmp.Add(@"                                        ");
-            slotsPrizes.Add(new SlotsPrize(1, 5));
             slotsElements.Add(new SlotsElement(2, "Wiśienki", "placeholder", tmp));
             slotsPrizes.Add(new SlotsPrize(2, 1.5));
             tmp = new List<string>();
@@ -266,7 +266,7 @@ namespace ConsoleCasino
             tmp.Add(@"             .@@@@@@@@                  ");
             tmp.Add(@"                                        ");
             slotsElements.Add(new SlotsElement(6, "Cytryna", "placeholder", tmp));
-            slotsPrizes.Add(new SlotsPrize(6, 1));
+            slotsPrizes.Add(new SlotsPrize(6, 2.33));
             tmp = new List<string>();
             tmp.Add(@"                                        ");
             tmp.Add(@"          ,@@@@@@@%**/&@@@@@@@          ");
@@ -285,7 +285,7 @@ namespace ConsoleCasino
             tmp.Add(@"       @@@@%                 @@@@@      ");
             tmp.Add(@"           @@@@@@@@@&@@@@@@@@@          ");
             slotsElements.Add(new SlotsElement(7, "Moneta", "placeholder", tmp));
-            slotsPrizes.Add(new SlotsPrize(7, 1));
+            slotsPrizes.Add(new SlotsPrize(7, 4.5));
             tmp = new List<string>();
             tmp.Add(@"                                        ");
             tmp.Add(@"                                        ");
@@ -304,7 +304,7 @@ namespace ConsoleCasino
             tmp.Add(@"                                        ");
             tmp.Add(@"                                        ");
             slotsElements.Add(new SlotsElement(8, "Bar", "placeholder", tmp));
-            slotsPrizes.Add(new SlotsPrize(8, 1));
+            slotsPrizes.Add(new SlotsPrize(8, 1.33));
             tmp = new List<string>();
             tmp.Add(@"                                        ");
             tmp.Add(@"                                        ");
@@ -323,7 +323,7 @@ namespace ConsoleCasino
             tmp.Add(@"                *,     *.               ");
             tmp.Add(@"                                        ");
             slotsElements.Add(new SlotsElement(9, "Jabłko", "placeholder", tmp));
-            slotsPrizes.Add(new SlotsPrize(9, 1));
+            slotsPrizes.Add(new SlotsPrize(9, 3));
             tmp = new List<string>();
             tmp.Add(@"                                        ");
             tmp.Add(@"                                        ");
@@ -342,7 +342,7 @@ namespace ConsoleCasino
             tmp.Add(@"                                        ");
             tmp.Add(@"                                        ");
             slotsElements.Add(new SlotsElement(10, "Serce", "placeholder", tmp));
-            slotsPrizes.Add(new SlotsPrize(10, 1));
+            slotsPrizes.Add(new SlotsPrize(10, 0.5));
             tmp = new List<string>();
             tmp.Add(@"                                        ");
             tmp.Add(@"                                        ");
@@ -361,7 +361,7 @@ namespace ConsoleCasino
             tmp.Add(@"                                        ");
             tmp.Add(@"                                        ");
             slotsElements.Add(new SlotsElement(11, "Winogrona", "placeholder", tmp));
-            slotsPrizes.Add(new SlotsPrize(11, 1));
+            slotsPrizes.Add(new SlotsPrize(11, 3.25));
             tmp = new List<string>();
             tmp.Add(@"                                        ");
             tmp.Add(@"                                        ");
@@ -380,7 +380,7 @@ namespace ConsoleCasino
             tmp.Add(@"                                        ");
             tmp.Add(@"                                        ");
             slotsElements.Add(new SlotsElement(12, "Pomarańcza", "placeholder", tmp));
-            slotsPrizes.Add(new SlotsPrize(12, 1));
+            slotsPrizes.Add(new SlotsPrize(12, 2.1));
             tmp = new List<string>();
             tmp.Add(@"                                        ");
             tmp.Add(@"           @@@@@@@@@@@@@@@@@@@          ");
@@ -399,7 +399,7 @@ namespace ConsoleCasino
             tmp.Add(@"       @@@@@@@             @@@@@@@      ");
             tmp.Add(@"     @@@@@@@@@             @@@@@@@@@    ");
             slotsElements.Add(new SlotsElement(13, "Podkowa", "placeholder", tmp));
-            slotsPrizes.Add(new SlotsPrize(13, 1));
+            slotsPrizes.Add(new SlotsPrize(13, 3.45));
             tmp = new List<string>();
             tmp.Add(@"                                        ");
             tmp.Add(@"                                        ");
@@ -418,7 +418,7 @@ namespace ConsoleCasino
             tmp.Add(@"                                        ");
             tmp.Add(@"                                        ");
             slotsElements.Add(new SlotsElement(14, "Siedem", "placeholder", tmp));
-            slotsPrizes.Add(new SlotsPrize(14, 1));
+            slotsPrizes.Add(new SlotsPrize(14, 4.32));
             tmp = new List<string>();
             tmp.Add(@"                                        ");
             tmp.Add(@"                                        ");
@@ -437,7 +437,7 @@ namespace ConsoleCasino
             tmp.Add(@"                                        ");
             tmp.Add(@"                                        ");
             slotsElements.Add(new SlotsElement(15, "Znak zapytania", "placeholder", tmp));
-            slotsPrizes.Add(new SlotsPrize(15, 1));
+            slotsPrizes.Add(new SlotsPrize(15, 1.33));
             tmp = new List<string>();
             tmp.Add(@"                                        ");
             tmp.Add(@"                                        ");
@@ -456,7 +456,7 @@ namespace ConsoleCasino
             tmp.Add(@"                                        ");
             tmp.Add(@"                                        ");
             slotsElements.Add(new SlotsElement(16, "Arbuz", "placeholder", tmp));
-            slotsPrizes.Add(new SlotsPrize(16, 1));
+            slotsPrizes.Add(new SlotsPrize(16, 2.20));
             tmp = new List<string>();
             tmp.Add(@"                                                                                ");
             tmp.Add(@"       @@@@@@@@&   /@@@          @@@@@@@@@@@,  .@@@@@@@@@@@@@. *@@@@@@@@(       ");
