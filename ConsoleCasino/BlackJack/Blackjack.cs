@@ -25,7 +25,7 @@ namespace ConsoleCasino.BlackJack
         {
             ConsoleKeyInfo cki;
             int bet = 0;
-            while(true)
+            while (true)
             {
                 assets.blackjackFill();
                 assets.getBalance(account);
@@ -48,54 +48,54 @@ namespace ConsoleCasino.BlackJack
                 }
             }
 
-            if (account.getBalance() >= bet)
+            Console.Clear();
+            EmptyView();
+            getYourSum(yoursum);
+            getEnemySum(enemysum);
+            do
             {
-                Console.Clear();
-                EmptyView();
-                getYourSum(yoursum);
-                getEnemySum(enemysum);
+                if(!removeBal(account, bet))
+                {
+                    return;
+                }
                 do
                 {
-                    account.removeBalance(bet);
-                    do
+                    assets.getBalance(account);
+                    cki = Console.ReadKey();
+                    switch (cki.Key)
                     {
-                        assets.getBalance(account);
-                        cki = Console.ReadKey();
-                        switch (cki.Key)
-                        {
-                            case ConsoleKey.H:
-                                Thread.Sleep(200);
-                                yoursum += hitCard();
-                                getYourSum(yoursum);
-                                Thread.Sleep(160);
-                                shouldEnemyHit(enemysum);
-                                first = 1;
-                                higerThanTO(yoursum, enemysum, bet);
-                                break;
-                            case ConsoleKey.S:
-                                if (first == 0)
-                                {
-                                    break;
-                                }
-                                while (enemysum <= 16)
-                                {
-                                    shouldEnemyHit(enemysum);
-                                    Thread.Sleep(160);
-                                }
-                                if (higerThanTO(yoursum, enemysum, bet) == 0)
-                                {
-                                    whoIsWinner(yoursum, enemysum, bet);
-                                }
-                                break;
-                        }
-                        if (cki.Key == ConsoleKey.Escape)
-                        {
+                        case ConsoleKey.H:
+                            Thread.Sleep(200);
+                            yoursum += hitCard();
+                            getYourSum(yoursum);
+                            Thread.Sleep(160);
+                            shouldEnemyHit(enemysum);
+                            first = 1;
+                            higerThanTO(yoursum, enemysum, bet);
                             break;
-                        }
-                    } while (finished == 0);
-                    finished = 0;
-                } while (cki.Key != ConsoleKey.Escape);
-            }
+                        case ConsoleKey.S:
+                            if (first == 0)
+                            {
+                                break;
+                            }
+                            while (enemysum <= 16)
+                            {
+                                shouldEnemyHit(enemysum);
+                                Thread.Sleep(160);
+                            }
+                            if (higerThanTO(yoursum, enemysum, bet) == 0)
+                            {
+                                whoIsWinner(yoursum, enemysum, bet);
+                            }
+                            break;
+                    }
+                    if (cki.Key == ConsoleKey.Escape)
+                    {
+                        break;
+                    }
+                } while (finished == 0);
+                finished = 0;
+            } while (cki.Key != ConsoleKey.Escape);
         }
         public void win(int bet)
         {
@@ -220,6 +220,15 @@ namespace ConsoleCasino.BlackJack
                 card = rand.Next(12);
             }
             return assets.getEnemyCard(card);
+        }
+        public bool removeBal(Account account, int bet)
+        {
+            if (account.getBalance() >= bet)
+            {
+                account.removeBalance(bet);
+                return true;
+            }
+            return false;
         }
     }
 }

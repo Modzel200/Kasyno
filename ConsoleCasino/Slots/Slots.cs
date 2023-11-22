@@ -43,25 +43,26 @@ namespace ConsoleCasino.Slots
                     Console.Clear();
                 }
             }
-            if (account.getBalance() >= bet)
+            Console.Clear();
+            EmptyView();
+            assets.getBalance(account);
+            do
             {
-                Console.Clear();
-                account.removeBalance(bet);
-                assets.getBalance(account);
-                EmptyView();
-                do
+                cki = Console.ReadKey();
+                switch (cki.Key)
                 {
-                    cki = Console.ReadKey();
-                    switch (cki.Key)
-                    {
-                        case ConsoleKey.Spacebar:
-                            LeverAnim();
-                            Lever(account, bet, assets);
-                            LeverAnimBack();
+                    case ConsoleKey.Spacebar:
+                        if (!removeBal(account, bet))
+                        {
                             break;
-                    }
-                } while (cki.Key != ConsoleKey.Escape);
-            }
+                        }
+                        assets.getBalance(account);
+                        LeverAnim();
+                        Lever(account, bet, assets);
+                        LeverAnimBack();
+                        break;
+                }
+            } while (cki.Key != ConsoleKey.Escape);
         }
         public void LeverAnim()
         {
@@ -84,7 +85,6 @@ namespace ConsoleCasino.Slots
         {
             assets.getBalance(account);
             Console.CursorVisible = false;
-            account.removeBalance(bet);
             Random rand = new Random();
             List<int> iters = new List<int>();
             iters.Add(0);
@@ -109,6 +109,15 @@ namespace ConsoleCasino.Slots
             {
                 account.addBalance(bet * prize);
                 assets.getBigWin();
+                return true;
+            }
+            return false;
+        }
+        public bool removeBal(Account account, int bet)
+        {
+            if(account.getBalance()>= bet)
+            {
+                account.removeBalance(bet);
                 return true;
             }
             return false;
