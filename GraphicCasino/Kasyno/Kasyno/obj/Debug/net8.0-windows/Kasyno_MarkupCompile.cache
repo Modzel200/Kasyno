@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\user\Desktop\Kasyno\Kasyno\obj\Debug\net8.0-windows\
+F:\GitHub\Kasyno\GraphicCasino\Kasyno\Kasyno\obj\Debug\net8.0-windows\
 Kasyno
 none
 false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP
-C:\Users\user\Desktop\Kasyno\Kasyno\App.xaml
-3-658633284
+F:\GitHub\Kasyno\GraphicCasino\Kasyno\Kasyno\App.xaml
+4664346658
 
-7-1169234838
+81769020211
 198-688555687
-Games\Roulette.xaml;MainWindow.xaml;View\UserControls\MainMenu.xaml;
+Games\Craps.xaml;Games\Roulette.xaml;MainWindow.xaml;View\UserControls\MainMenu.xaml;
 
 False
 

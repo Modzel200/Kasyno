@@ -38,6 +38,11 @@ namespace Kasyno.View.UserControls
                     Roulette roulette = new Roulette();
                     roulette.Show();
                 }
+                if(selectedGame=="Craps")
+                {
+                    Craps craps = new Craps();
+                    craps.Show();
+                }
                 if(selectedGame=="Exit")
                 {
                     System.Windows.Application.Current.Shutdown();
