@@ -35,7 +35,7 @@ namespace Kasyno.Games
             if (rouletteNumber == Int32.Parse(number.Text))
             {
                 account.addBalance(double.Parse(bet.Text, CultureInfo.InvariantCulture.NumberFormat) * 4);
-                rouletteAnimation.Source = new Uri("C:\\Users\\user\\Desktop\\Kasyno\\Kasyno\\bin\\Debug\\net8.0-windows\\money.mp4");
+                rouletteAnimation.Source = new Uri(AppDomain.CurrentDomain.BaseDirectory + "money.mp4");
             }
         }
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -46,32 +46,32 @@ namespace Kasyno.Games
             switch(rand)
             {
                 case 0:
-                    rouletteAnimation.Source = new Uri("C:\\Users\\user\\Desktop\\Kasyno\\Kasyno\\bin\\Debug\\net8.0-windows\\roulette0.mp4");
+                    rouletteAnimation.Source = new Uri(AppDomain.CurrentDomain.BaseDirectory+"roulette0.mp4");
                     Thread.Sleep(8000);
                     Won(0);
                     break;
                 case 1:
-                    rouletteAnimation.Source = new Uri("C:\\Users\\user\\Desktop\\Kasyno\\Kasyno\\bin\\Debug\\net8.0-windows\\roulette7.mp4");
+                    rouletteAnimation.Source = new Uri(AppDomain.CurrentDomain.BaseDirectory + "roulette7.mp4");
                     Thread.Sleep(8000);
                     Won(7);
                     break;
                 case 2:
-                    rouletteAnimation.Source = new Uri("C:\\Users\\user\\Desktop\\Kasyno\\Kasyno\\bin\\Debug\\net8.0-windows\\roulette11.mp4");
+                    rouletteAnimation.Source = new Uri(AppDomain.CurrentDomain.BaseDirectory + "roulette11.mp4");
                     Thread.Sleep(8000);
                     Won(11);
                     break;
                 case 3:
-                    rouletteAnimation.Source = new Uri("C:\\Users\\user\\Desktop\\Kasyno\\Kasyno\\bin\\Debug\\net8.0-windows\\roulette17.mp4");
+                    rouletteAnimation.Source = new Uri(AppDomain.CurrentDomain.BaseDirectory + "roulette17.mp4");
                     Thread.Sleep(8000);
                     Won(17);
                     break;
                 case 4:
-                    rouletteAnimation.Source = new Uri("C:\\Users\\user\\Desktop\\Kasyno\\Kasyno\\bin\\Debug\\net8.0-windows\\roulette23.mp4");
+                    rouletteAnimation.Source = new Uri(AppDomain.CurrentDomain.BaseDirectory + "roulette23.mp4");
                     Thread.Sleep(8000);
                     Won(23);
                     break;
                 case 5:
-                    rouletteAnimation.Source = new Uri("C:\\Users\\user\\Desktop\\Kasyno\\Kasyno\\bin\\Debug\\net8.0-windows\\roulette32.mp4");
+                    rouletteAnimation.Source = new Uri(AppDomain.CurrentDomain.BaseDirectory + "roulette32.mp4");
                     Thread.Sleep(8000);
                     Won(32);
                     break;
