@@ -43,7 +43,12 @@ namespace Kasyno.View.UserControls
                     Craps craps = new Craps();
                     craps.Show();
                 }
-                if(selectedGame=="Exit")
+                if (selectedGame == "BlackJack")
+                {
+                    Blackjack blackjack = new Blackjack();
+                    blackjack.Show();
+                }
+                if (selectedGame=="Exit")
                 {
                     System.Windows.Application.Current.Shutdown();
                 }
