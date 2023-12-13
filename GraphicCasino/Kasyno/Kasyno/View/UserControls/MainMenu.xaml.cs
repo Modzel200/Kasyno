@@ -48,6 +48,11 @@ namespace Kasyno.View.UserControls
                     Blackjack blackjack = new Blackjack();
                     blackjack.Show();
                 }
+                if (selectedGame == "Slots")
+                {
+                    Slots slots = new Slots();
+                    slots.Show();
+                }
                 if (selectedGame=="Exit")
                 {
                     System.Windows.Application.Current.Shutdown();

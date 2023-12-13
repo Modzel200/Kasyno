@@ -18,7 +18,7 @@ namespace Kasyno.Games
 {
     public class BlackjackElement
     {
-        public BlackjackElement(int Id, string Name, Uri ImageUrl, List<string> AsciTab, int Weight)
+        public BlackjackElement(int Id, string Name, string ImageUrl, List<string> AsciTab, int Weight)
         {
             this.Id = Id;
             this.Name = Name;
@@ -27,7 +27,7 @@ namespace Kasyno.Games
             this.Weight = Weight;
             this.Quantity = 4;
         }
-        public BlackjackElement(int Id, string Name, Uri ImageUrl, int Weight)
+        public BlackjackElement(int Id, string Name, string ImageUrl, int Weight)
         {
             this.Id = Id;
             this.Name = Name;
@@ -37,7 +37,7 @@ namespace Kasyno.Games
         }
         public int Id { get; set; }
         public string Name { get; set; }
-        public Uri ImageUrl { get; set; }
+        public string ImageUrl { get; set; }
         public List<string>? AsciTab { get; set; }
         public int Weight { get; set; }
         public int Quantity { get; set; }
@@ -59,19 +59,19 @@ namespace Kasyno.Games
         private void initList()
         {
             elements = new List<BlackjackElement>();
-            elements.Add(new BlackjackElement(0, "As", new Uri(AppDomain.CurrentDomain.BaseDirectory + "acebj.png"), 11));
-            elements.Add(new BlackjackElement(1, "Dwa", new Uri(AppDomain.CurrentDomain.BaseDirectory + "twobj.png"), 2));
-            elements.Add(new BlackjackElement(2, "Trzy", new Uri(AppDomain.CurrentDomain.BaseDirectory + "threebj.png"), 3));
-            elements.Add(new BlackjackElement(3, "Cztery", new Uri(AppDomain.CurrentDomain.BaseDirectory + "fourbj.png"), 4));
-            elements.Add(new BlackjackElement(4, "Pięć", new Uri(AppDomain.CurrentDomain.BaseDirectory + "fivebj.png"), 5));
-            elements.Add(new BlackjackElement(5, "Sześć", new Uri(AppDomain.CurrentDomain.BaseDirectory + "sixbj.png"), 6));
-            elements.Add(new BlackjackElement(6, "Siedem", new Uri(AppDomain.CurrentDomain.BaseDirectory + "sevenbj.png"), 7));
-            elements.Add(new BlackjackElement(7, "Osiem", new Uri(AppDomain.CurrentDomain.BaseDirectory + "eightbj.png"), 8));
-            elements.Add(new BlackjackElement(8, "Dziewięć", new Uri(AppDomain.CurrentDomain.BaseDirectory + "ninebj.png"), 9));
-            elements.Add(new BlackjackElement(9, "Dziesięć", new Uri(AppDomain.CurrentDomain.BaseDirectory + "tenbj.png"), 10));
-            elements.Add(new BlackjackElement(10, "Walet", new Uri(AppDomain.CurrentDomain.BaseDirectory + "jopekbj.png"), 10));
-            elements.Add(new BlackjackElement(11, "Dama", new Uri(AppDomain.CurrentDomain.BaseDirectory + "queenbj.png"), 10));
-            elements.Add(new BlackjackElement(12, "Król", new Uri(AppDomain.CurrentDomain.BaseDirectory + "kingbj.png"), 10));
+            elements.Add(new BlackjackElement(0, "As", "acebj.png", 11));
+            elements.Add(new BlackjackElement(1, "Dwa", "twobj.png", 2));
+            elements.Add(new BlackjackElement(2, "Trzy", "threebj.png", 3));
+            elements.Add(new BlackjackElement(3, "Cztery", "fourbj.png", 4));
+            elements.Add(new BlackjackElement(4, "Pięć", "fivebj.png", 5));
+            elements.Add(new BlackjackElement(5, "Sześć", "sixbj.png", 6));
+            elements.Add(new BlackjackElement(6, "Siedem", "sevenbj.png", 7));
+            elements.Add(new BlackjackElement(7, "Osiem", "eightbj.png", 8));
+            elements.Add(new BlackjackElement(8, "Dziewięć", "ninebj.png", 9));
+            elements.Add(new BlackjackElement(9, "Dziesięć", "tenbj.png", 10));
+            elements.Add(new BlackjackElement(10, "Walet", "jopekbj.png", 10));
+            elements.Add(new BlackjackElement(11, "Dama", "queenbj.png", 10));
+            elements.Add(new BlackjackElement(12, "Król", "kingbj.png" , 10));
         }
         private void shouldEnemyHit()
         {
@@ -89,7 +89,7 @@ namespace Kasyno.Games
             }
             elements[card].Quantity--;
             botScore += elements[card].Weight;
-            botThrow.Source = elements[card].ImageUrl;
+            botThrow.Source = new ImageSourceConverter().ConvertFromString(elements[card].ImageUrl) as ImageSource;
             MediaPlayer mplayer = new MediaPlayer();
             mplayer.Open(new Uri(AppDomain.CurrentDomain.BaseDirectory + "card.mp3"));
             mplayer.Play();
@@ -103,7 +103,7 @@ namespace Kasyno.Games
             }
             elements[card].Quantity--;
             userScore += elements[card].Weight;
-            userThrow.Source = elements[card].ImageUrl;
+            userThrow.Source = new ImageSourceConverter().ConvertFromString(elements[card].ImageUrl) as ImageSource;
             MediaPlayer mplayer = new MediaPlayer();
             mplayer.Open(new Uri(AppDomain.CurrentDomain.BaseDirectory + "card.mp3"));
             mplayer.Play();
@@ -164,8 +164,11 @@ namespace Kasyno.Games
         }
         private void Won()
         {
+            userScore = 0;
+            botScore = 0;
             userThrow.Visibility = Visibility.Hidden;
             botThrow.Visibility = Visibility.Hidden;
+            bjtable.Visibility = Visibility.Hidden;
             bigWin.Visibility = Visibility.Visible;
             inittxt.Visibility = Visibility.Visible;
             initbet.Visibility = Visibility.Visible;
@@ -179,13 +182,17 @@ namespace Kasyno.Games
         }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            updateScore();
+            
+            userThrow.Visibility = Visibility.Visible;
+            botThrow.Visibility = Visibility.Visible;
             inittxt.Visibility = Visibility.Hidden;
             initbet.Visibility = Visibility.Hidden;
             initbutton.Visibility = Visibility.Hidden;
             hitbj.Visibility = Visibility.Visible;
             standbj.Visibility = Visibility.Visible;
+            bjtable.Visibility = Visibility.Visible;
             bigWin.Visibility = Visibility.Hidden;
+            updateScore();
             account.removeBalance(double.Parse(initbet.Text, CultureInfo.InvariantCulture.NumberFormat));
             accBalance.Text = "Balans: " + account.getBalance();
             hitCard();
