@@ -101,7 +101,7 @@ namespace Kasyno.Games {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/Kasyno;component/games/slots.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/Kasyno;V1.0.0.0;component/games/slots.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\Games\Slots.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);
