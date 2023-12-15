@@ -9,17 +9,12 @@ Kasyno
 none
 false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP
-<<<<<<< Updated upstream
-D:\Kurs\Kasyno\GraphicCasino\Kasyno\Kasyno\App.xaml
-6698518924
-=======
 F:\GitHub\Kasyno\GraphicCasino\Kasyno\Kasyno\App.xaml
-51053129596
->>>>>>> Stashed changes
+6698518924
 
 12-1136650125
 198-688555687
 Games\Blackjack.xaml;Games\Craps.xaml;Games\Roulette.xaml;Games\Slots.xaml;MainWindow.xaml;View\UserControls\MainMenu.xaml;
 
-False
+True
 
