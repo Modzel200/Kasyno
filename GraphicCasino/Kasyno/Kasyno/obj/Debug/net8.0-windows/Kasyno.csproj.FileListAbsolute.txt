@@ -81,5 +81,10 @@ D:\Kurs\Kasyno\GraphicCasino\Kasyno\Kasyno\obj\Debug\net8.0-windows\Kasyno.genru
 D:\Kurs\Kasyno\GraphicCasino\Kasyno\Kasyno\obj\Debug\net8.0-windows\ref\Kasyno.dll
 D:\Kurs\Kasyno\GraphicCasino\Kasyno\Kasyno\obj\Debug\net8.0-windows\Games\Blackjack.g.cs
 D:\Kurs\Kasyno\GraphicCasino\Kasyno\Kasyno\obj\Debug\net8.0-windows\Games\Blackjack.baml
+<<<<<<< Updated upstream
 D:\Kurs\Kasyno\GraphicCasino\Kasyno\Kasyno\obj\Debug\net8.0-windows\Games\Slots.g.cs
 D:\Kurs\Kasyno\GraphicCasino\Kasyno\Kasyno\obj\Debug\net8.0-windows\Games\Slots.baml
+=======
+F:\GitHub\Kasyno\GraphicCasino\Kasyno\Kasyno\obj\Debug\net8.0-windows\Games\Blackjack.g.cs
+F:\GitHub\Kasyno\GraphicCasino\Kasyno\Kasyno\obj\Debug\net8.0-windows\Games\Blackjack.baml
+>>>>>>> Stashed changes
